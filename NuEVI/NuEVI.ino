@@ -91,7 +91,7 @@ unsigned short priority; // mono priority for rotator chords
 unsigned short extraCT2; // OFF:1-127
 unsigned short levelCC; // 0-127
 unsigned short levelVal; // 0-127
-unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+unsigned short fingering; // 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR
 unsigned short rollerMode; //0-2
 unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -2234,12 +2234,32 @@ void readSwitches() {
       + 2*RHs + 4*RHp3  //Trill keys +2 and +4
       + (!LH2 || !LH3 || LHp2) // Trill +1 achieved by lifting finger from LH2 or LH3, or touching LHp2
       + octaveR*12;       //Octave rollers
-  } else { // EVI fingering with reversed octave rollers
+  } else if (4==fingering) { // EVR is EVI fingering with reversed octave rollers
       fingeredNoteUntransposed = startNote
       - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
       - 5*LH1              //Fifth key
       + 2*RHs + 4*RHp3  //Trill keys +2 and +4
       + (!LH2 || !LH3 || LHp2) // Trill +1 achieved by lifting finger from LH2 or LH3, or touching LHp2
+      + (6-octaveR)*12;       //Octave rollers, reversed    
+  } else if (5==fingering) { // XVI fingering (extended EVI)
+      fingeredNoteUntransposed = startNote
+      - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
+      - 5*LH1              //Fifth key
+      + 4*(!LH2)           // Maj Third up when lift
+      + 3*(!LH3)           // Min Third up when lift
+      + 2*RHs + 4*RHp3  //Trill keys +2 and +4
+      + LHp1 + RHp1               // Trill keys +1 
+      - LHp2 - 2*RHp2               // Trill keys -1 and -2 
+      + octaveR*12;       //Octave rollers
+  } else { // XVR is XVI fingering with reversed octave rollers
+      fingeredNoteUntransposed = startNote
+      - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
+      - 5*LH1              //Fifth key
+      + 4*(!LH2)           // Maj Third up when lift
+      + 3*(!LH3)           // Min Third up when lift
+      + 2*RHs + 4*RHp3  //Trill keys +2 and +4
+      + LHp1 + RHp1               // Trill keys +1 
+      - LHp2 - 2*RHp2               // Trill keys -1 and -2 
       + (6-octaveR)*12;       //Octave rollers, reversed    
   }
   

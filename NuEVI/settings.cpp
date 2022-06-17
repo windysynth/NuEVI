@@ -241,7 +241,7 @@ void readEEPROM(const bool factoryReset) {
     levelCC         = readSettingBounded(LEVEL_CC_ADDR, 0, 127, LEVEL_CC_FACTORY);
     levelVal        = readSettingBounded(LEVEL_VAL_ADDR, 0, 127, LEVEL_VAL_FACTORY);
     #if defined(NURAD)
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 4, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 6, FINGER_FACTORY); // added XVI and XVR
     #else
     fingering       = readSettingBounded(FINGER_ADDR, 0, 3, FINGER_FACTORY);
     #endif

@@ -1,2 +1,9 @@
 .vscode/ipch
 *.o
+#########
+# Vim temp files
+#########
+*~
+*.swp
+*.swo
+
