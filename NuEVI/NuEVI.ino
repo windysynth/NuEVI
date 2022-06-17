@@ -92,6 +92,7 @@ unsigned short extraCT2; // OFF:1-127
 unsigned short levelCC; // 0-127
 unsigned short levelVal; // 0-127
 unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+unsigned short rollerMode; //0-2
 unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 unsigned short batteryType; // 0-2 ALK,NIM,LIP
 unsigned short harmSetting; // 0-7
@@ -191,6 +192,7 @@ uint16_t legacy = 0;
 uint16_t legacyBrAct = 0;
 byte halfTime = 0;
 boolean programonce = false;
+boolean oneroll;
 byte widiOn = 0;
 
 int breathLevel=0;   // breath level (smoothed) not mapped to CC value
@@ -248,6 +250,7 @@ byte vibLedOff = 0;
 byte oldpkey = 0;
 
 byte lap = 0;
+byte rSum = 0;
 
 static const float vibDepth[10] = {0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.40,0.45}; // max pitch bend values (+/-) for the vibrato settings
 static const short vibMaxBiteList[17] = {1600,1400,1200,1000,900,800,700,600,500,400,300,250,200,150,100,50,25};
@@ -550,6 +553,7 @@ byte R2;
 byte R3;
 byte R4;
 byte R5;
+byte R6;
 
 byte octaveR = 0;
 byte lastOctaveR = 0;
@@ -2111,32 +2115,37 @@ void readSwitches() {
         //touchValueRollers[i]=touchSensorRollers.filteredData(i) - calOffsetRollers[i];
         touchValueRollers[i]=touchSensorRollers.filteredData(i) * (300-calOffsetRollers[i])/300;
       }
-      // 6-pin version
+
+      // 6-pin version, NuRAD
+
+      R1=(touchValueRollers[rPin1] < ctouchThrVal);
+      R2=(touchValueRollers[rPin2] < ctouchThrVal);
+      R3=(touchValueRollers[rPin3] < ctouchThrVal);
+      R4=(touchValueRollers[rPin4] < ctouchThrVal);
+      R5=(touchValueRollers[rPin5] < ctouchThrVal);
+      R6=(touchValueRollers[rPin6] < ctouchThrVal);
+      rSum = R1+R2+R3+R4+R5+R6;
+      
       octaveR = 0;
-      if      (touchValueRollers[rPin6] < ctouchThrVal) octaveR = 6; //R6
-      else if (R5=(touchValueRollers[rPin5] < ctouchThrVal)) octaveR = 5;  //R5 (store for combo check)
-      else if (R4=(touchValueRollers[rPin4] < ctouchThrVal)) octaveR = 4;  //R4 (store for combo check)
-      else if (R3=(touchValueRollers[rPin3] < ctouchThrVal)) octaveR = 3;  //R3 (store for combo check)
-      else if (R2=(touchValueRollers[rPin2] < ctouchThrVal)) octaveR = 2;  //R2 (store for combo check)
-      else if (touchValueRollers[rPin1] < ctouchThrVal) octaveR = 1;  //R1
+      oneroll = (rollerMode < 2);
+      if      (R6 && (R5 || oneroll)) octaveR = 6;  //R6
+      else if (R5 && (R4 || oneroll)) octaveR = 5;  //R5
+      else if (R4 && (R3 || oneroll)) octaveR = 4;  //R4
+      else if (R3 && (R2 || oneroll)) octaveR = 3;  //R3
+      else if (R2 && (R1 || oneroll)) octaveR = 2;  //R2
+      else if (R1) octaveR = 1;  //R1
       else if (lastOctaveR > 1) {
-        octaveR = lastOctaveR; 
-        if (otfKey && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
+        if (rollerMode) octaveR = lastOctaveR; //if rollers are released and we are not coming down from roller 1, stay at the higher octave
+        if (otfKey && !rSum && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
         if (mainState == NOTE_OFF) currentRotation = 3; //rotator reset by releasing rollers 
       }
-      //if rollers are released and we are not coming down from roller 1, stay at the higher octave
-
+      if ((3 == rollerMode) && R6 && !R5 && (6 == lastOctaveR)) octaveR = 7; // Bonus octave on top
+      // Roller modes
+      // 0: Highest touched roller, no release memory (legacy style), 1 in menu
+      // 1: Highest touched roller, release memory, 2 in menu
+      // 2: Touched roller pair, release memory, 3 in menu
+      // 3: Touched roller pair, release memory, bonus octave on top, 4 in menu     
       lastOctaveR = octaveR;
-       /*
-      //5-pin version
-      octaveR = 0;
-      if      ((touchValueRollers[rPin5] < ctouchThrVal) && (touchValueRollers[rPin3] < ctouchThrVal)) octaveR = 6; //R6
-      else if (touchValueRollers[rPin5] < ctouchThrVal) octaveR = 5;  //R5
-      else if (touchValueRollers[rPin4] < ctouchThrVal) octaveR = 4;  //R4
-      else if (touchValueRollers[rPin3] < ctouchThrVal) octaveR = 3;  //R3
-      else if (touchValueRollers[rPin2] < ctouchThrVal) octaveR = 2;  //R2
-      else if (touchValueRollers[rPin1] < ctouchThrVal) octaveR = 1;  //R1
-      */
       break;
     case 1:       
       // RH keys
@@ -2253,21 +2262,27 @@ void readSwitches() {
   R3 = touchKeys[R3Pin];
   R4 = touchKeys[R4Pin];
   R5 = touchKeys[R5Pin];
+  rSum = R1+R2+R3+R4+R5;
 
   octaveR = 0;
+  oneroll = (rollerMode < 2);
   if (R5 && R3) octaveR = 6; //R6 = R5 && R3
-  else if (R5) octaveR = 5; //R5
-  else if (R4) octaveR = 4; //R4
-  else if (R3 && lastOctaveR) octaveR = 3; //R3
-  else if (R2) octaveR = 2; //R2
+  else if (R5 && (R4 || oneroll)) octaveR = 5; //R5
+  else if (R4 && (R3 || oneroll)) octaveR = 4; //R4
+  else if (R3 && (R2 || (oneroll && lastOctaveR))) octaveR = 3; //R3
+  else if (R2 && (R1 || oneroll)) octaveR = 2; //R2
   else if (R1) octaveR = 1; //R1
   else if (lastOctaveR > 1) {
-    octaveR = lastOctaveR; 
-    if (otfKey && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12; 
-    if (mainState == NOTE_OFF) currentRotation = 3; //rotator reset by releasing rollers 
+  if (rollerMode) octaveR = lastOctaveR; //if rollers are released and we are not coming down from roller 1, stay at the higher octave (CV filter leak prevention when putting NuEVI aside)
+  if (otfKey && !rSum && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12; 
+  if (mainState == NOTE_OFF) currentRotation = 3; //rotator reset by releasing rollers 
   }
-  //if rollers are released and we are not coming down from roller 1, stay at the higher octave
-  //CV filter leak prevention when putting NuEVI aside
+  if ((3 == rollerMode) && R3 && !R5 && (6 == lastOctaveR)) octaveR = 7; // Bonus octave on top
+  // Roller modes
+  // 0: Highest touched roller, no release memory (legacy style), 1 in menu
+  // 1: Highest touched roller, release memory, 2 in menu
+  // 2: Touched roller pair, release memory, 3 in menu
+  // 3: Touched roller pair, release memory, bonus octave on top, 4 in menu 
 
   lastOctaveR = octaveR;
 

@@ -100,6 +100,7 @@ extern unsigned short extraCT2; // OFF:1-127
 extern unsigned short levelCC; // 0-127
 extern unsigned short levelVal; // 0-127
 extern unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+extern unsigned short rollerMode; //0-2
 extern unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 extern unsigned short batteryType; // 0-2 ALK,NIM,LIP
 extern unsigned short harmSetting; // 0-7

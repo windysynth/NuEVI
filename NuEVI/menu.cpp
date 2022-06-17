@@ -1561,6 +1561,14 @@ const MenuEntrySub fingeringMenu = {
 };
 #endif
 
+const MenuEntrySub rollerMenu = {
+  MenuType::ESub, "ROLLRMODE",  "ROLLRMODE", &rollerMode, 0, 3, MenuEntryFlags::EMenuEntryWrap,
+  [](SubMenuRef __unused, char* out, const char** __unused unit) {
+    numToString(rollerMode+1, out);
+  },
+[](const MenuEntrySub & __unused sub) { writeSetting(ROLLER_ADDR,rollerMode); }
+  , nullptr
+};
 
 
 const MenuEntrySub lpinky3Menu = {
@@ -1595,6 +1603,7 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&lvlCtrlCCMenu,
   (MenuEntry*)&lpinky3Menu,
   (MenuEntry*)&fingeringMenu,
+  (MenuEntry*)&rollerMenu,
   (MenuEntry*)&pitchBendMenu
 };
 #else
@@ -1614,6 +1623,7 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&pinkyMenu,
   (MenuEntry*)&lvlCtrlCCMenu,
   (MenuEntry*)&fingeringMenu,
+  (MenuEntry*)&rollerMenu,
   (MenuEntry*)&pitchBendMenu
 };
 #endif
