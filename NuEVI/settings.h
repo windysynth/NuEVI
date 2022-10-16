@@ -94,8 +94,9 @@
 #define CVSCALE_ADDR 182
 #define CVRATE_ADDR 184
 #define ROLLER_ADDR 186
+#define GLISSSET_ADDR 188
 
-#define EEPROM_SIZE 188 //Last address +2
+#define EEPROM_SIZE 190 //Last address +2
 
 
 //DAC output modes
@@ -169,6 +170,7 @@
 #define BATTYPE_FACTORY 0
 #define HARMSET_FACTORY 0
 #define HARMSEL_FACTORY 0
+#define GLISSSEL_FACTORY 0
 #define PARAB_FACTORY 31 // 7 (+ 24) Rotator parallel
 #define ROTB1_FACTORY 19 // -5 (+24) Rotation 1
 #define ROTB2_FACTORY 14 // -10 (+24) Rotation 2

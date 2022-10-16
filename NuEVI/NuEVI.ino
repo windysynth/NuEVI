@@ -79,6 +79,8 @@ unsigned short PBdepth;   // OFF:1-12 divider
 unsigned short extraCT;   // OFF:MW:FP:CF:SP
 unsigned short vibrato;   // OFF:1-9
 unsigned short deglitch;  // 0-70 ms in steps of 5
+unsigned short glissTime = 65;  // 25-300ms in steps of 5
+unsigned short glissSetting; // OFF:25-125 (0,5-25)
 unsigned short patch;     // 1-128
 unsigned short octave;
 unsigned short curve;
@@ -168,6 +170,7 @@ static unsigned long pixelUpdateTime = 0;
 static const unsigned long pixelUpdateInterval = 80;
 
 unsigned long lastDeglitchTime = 0;         // The last time the fingering was changed
+unsigned long lastGlissTime = 0;            // The last time the glissCurrentNote was created
 unsigned long ccSendTime = 0L;              // The last time we sent CC values
 unsigned long ccSendTime2 = 0L;             // The last time we sent CC values 2 (slower)
 unsigned long ccSendTime3 = 0L;             // The last time we sent CC values 3 (and slower)
@@ -501,7 +504,12 @@ int vibZeroBite;
 int vibThrBite;
 int vibThrBiteLo;
 
-
+bool glissEnable = 0;         // tjk: gui setting that allows glissNotes
+bool glissActive = 0;         // tjk: currently making glissNotes
+bool newFingeringFirstTimeFlag = false;  //tjk
+int glissCurrentNote = 0;             // tjk: current glissando note 
+int glissTargetNote = 0;             // tjk: target glissando note 
+int glissInterval = 0;   // 0,1-3        // tjk: number of semitones step size between notes for glissando mode 
 int fingeredNote;    // note calculated from fingering (switches), transpose and octave settings
 int fingeredNoteUntransposed; // note calculated from fingering (switches), for on the fly settings
 byte activeNote;     // note playing
@@ -1486,7 +1494,7 @@ void loop() {
 
   //do menu stuff
   menu();
-}
+} // end of loop()
 
 //_______________________________________________________________________________________________ FUNCTIONS
 
@@ -1810,7 +1818,7 @@ void extraController() {
   if ((harmSetting && (pinkySetting != ECH)) || ((pinkySetting == ECH) && pinkyKey)){
     if (harmSelect < 4){
       harmonics = map(constrain(exSensor, extracThrVal, extracMaxVal), extracThrVal, extracMaxVal, 0, harmSetting);
-    } else {
+    } else { // 5th Down or Oct Down
       harmonics = map(constrain(exSensor, extracThrVal, extracMaxVal), extracMaxVal, extracThrVal, 0, harmSetting);
     }
   } else if ((pinkySetting == ECH) && !pinkyKey) {
@@ -1881,6 +1889,12 @@ void extraController() {
       midiSendControlChange(extraCT2, 0);
       oldextrac2 = 0;
     }
+  }
+//tjk: use lip sensor (exSensor) to controll glissInterval
+  if (glissEnable && (exSensor >= extracThrVal) ){
+      glissInterval = map(constrain(exSensor, extracThrVal, extracMaxVal), extracThrVal, extracMaxVal, 1, 3);
+  } else {
+      glissInterval = 0; // special case: 0 means go directly to target note
   }
 }
 
@@ -2104,7 +2118,7 @@ void autoCal() {
 //***********************************************************
 
 void readSwitches() {
-
+ int glissNoteDiff = 0; // tjk: glissTargetNote - glissCurrentNote
 #if defined(NURAD)
 
   switch (lap){
@@ -2363,15 +2377,58 @@ void readSwitches() {
   if (pinkyKey) pitchlatch = fingeredNoteUntransposed; //use pitchlatch to make settings based on note fingered
 
 #endif
+ 
+  /* tjk: inserted Glissando feature between fingeredNoteRead and fingeredNote  */
+  // create glissando notes between previous note and current one if not chording and still blowing
+  glissEnable = (glissSetting > 4);
+  glissTime = glissEnable ? glissSetting*5 : 0;
+  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0);
 
   if (fingeredNoteRead != lastFingering) { //
     // reset the debouncing timer
     lastDeglitchTime = millis();
+    newFingeringFirstTimeFlag = true;
   }
+
   if ((millis() - lastDeglitchTime) > deglitch) {
     // whatever the reading is at, it's been there for longer
     // than the debounce delay, so take it as the actual current state
-    fingeredNote = fingeredNoteRead;
+    // fingeredNote = fingeredNoteRead; //tjk: gliss
+    glissTargetNote = fingeredNoteRead;
+    if (glissActive && newFingeringFirstTimeFlag) {
+      lastGlissTime = millis() + glissTime; // ensure new start of gliss
+      newFingeringFirstTimeFlag = false;
+    }
   }
   lastFingering = fingeredNoteRead;
+
+
+  if (glissActive) {
+    glissNoteDiff = glissTargetNote - glissCurrentNote;
+    if (glissTargetNote != glissCurrentNote){
+      if ((millis() - lastGlissTime) >= glissTime) {
+        if( glissNoteDiff < 0 ) //current higher than target
+        {
+            glissCurrentNote -= (abs(glissNoteDiff) >= abs(glissInterval)) 
+                            ? glissInterval : 1;
+                         //   : (((glissCurrentNote - glissInterval) - glissTargetNote) < glissNoteDiff 
+                         //   ? glissInterval : 1) ;
+        }
+        else if ( glissNoteDiff > 0)  // target higher than current
+        {
+            glissCurrentNote += (abs(glissNoteDiff) >= abs(glissInterval)) 
+                            ? glissInterval : 1;
+                         //   : (((glissCurrentNote + glissInterval) - glissTargetNote) < glissNoteDiff 
+                         //   ? glissInterval : 1) ;
+        }
+        lastGlissTime = millis();
+      }
+    }
+  }
+  else{
+    glissCurrentNote = glissTargetNote; // pass thru the fingeredNoteRead
+  }
+  fingeredNote = glissCurrentNote;
+
+
 }

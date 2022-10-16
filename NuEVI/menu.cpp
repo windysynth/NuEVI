@@ -1484,6 +1484,22 @@ const MenuEntrySub harmSelectMenu = {
   , nullptr
 };
 
+//tjk: menu to glissTime (time between glissando notes in mS)
+const MenuEntrySub glissandoMenu = {
+  MenuType::ESub, "EXCT GLISS",  "GLISS TIME", &glissSetting, 4, 25, MenuEntryFlags::EMenuEntryWrap,
+  [](SubMenuRef __unused, char* out, const char** label) {
+    if(glissSetting>=5){
+      numToString(glissSetting*5, out); //0-4 is off 5-25 is 25-125mS
+      *label = "ms";
+    }else{
+      strncpy(out, "OFF", 4);
+    }
+  },
+[](const MenuEntrySub & __unused sub) { writeSetting(GLISSSET_ADDR,glissSetting); }
+  , nullptr
+};
+
+
 const MenuEntryStateCh vibratoSubMenu = { MenuType::EStateChange, "VIBRATO", VIBRATO_MENU };
 
 const MenuEntrySub deglitchMenu = {
@@ -1604,7 +1620,8 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&lpinky3Menu,
   (MenuEntry*)&fingeringMenu,
   (MenuEntry*)&rollerMenu,
-  (MenuEntry*)&pitchBendMenu
+  (MenuEntry*)&pitchBendMenu,
+  (MenuEntry*)&glissandoMenu
 };
 #else
 const MenuEntry* controlMenuEntries[] = {
@@ -1624,7 +1641,8 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&lvlCtrlCCMenu,
   (MenuEntry*)&fingeringMenu,
   (MenuEntry*)&rollerMenu,
-  (MenuEntry*)&pitchBendMenu
+  (MenuEntry*)&pitchBendMenu,
+  (MenuEntry*)&glissandoMenu
 };
 #endif
 
