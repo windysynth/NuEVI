@@ -2,7 +2,8 @@
 #define __HARDWARE_H
 
 #define REVB
-#define NURAD
+//#define NURAD
+//#define SEAMUS
 
 //#define I2CSCANNER
 
@@ -72,6 +73,7 @@
 #define RHp3Pin 7
 #define spec1Pin 10
 #define spec2Pin 9
+#define patchPin 5
 
 // MPR121 LH 0x5B
 
