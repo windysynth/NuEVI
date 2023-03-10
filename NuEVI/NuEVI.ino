@@ -79,6 +79,8 @@ unsigned short PBdepth;   // OFF:1-12 divider
 unsigned short extraCT;   // OFF:MW:FP:CF:SP
 unsigned short vibrato;   // OFF:1-9
 unsigned short deglitch;  // 0-70 ms in steps of 5
+unsigned short glissTime = 65;  // ws: 25-300ms in steps of 5
+unsigned short glissSetting; // ws: OFF:25-125 (0,5-25)
 unsigned short patch;     // 1-128
 unsigned short octave;
 unsigned short curve;
@@ -91,7 +93,7 @@ unsigned short priority; // mono priority for rotator chords
 unsigned short extraCT2; // OFF:1-127
 unsigned short levelCC; // 0-127
 unsigned short levelVal; // 0-127
-unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+unsigned short fingering; // 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR  ws added XVI, XVR
 unsigned short rollerMode; //0-2
 unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -172,6 +174,7 @@ static unsigned long pixelUpdateTime = 0;
 static const unsigned long pixelUpdateInterval = 80;
 
 unsigned long lastDeglitchTime = 0;         // The last time the fingering was changed
+unsigned long lastGlissTime = 0;            // The last time the glissCurrentNote was created  (ws)
 unsigned long ccSendTime = 0L;              // The last time we sent CC values
 unsigned long ccSendTime2 = 0L;             // The last time we sent CC values 2 (slower)
 unsigned long ccSendTime3 = 0L;             // The last time we sent CC values 3 (and slower)
@@ -505,7 +508,12 @@ int vibZeroBite;
 int vibThrBite;
 int vibThrBiteLo;
 
-
+bool glissEnable = 0;         // ws: gui setting that allows glissNotes
+bool glissActive = 0;         // ws: currently making glissNotes
+bool newFingeringFirstTimeFlag = false;  //ws
+int glissCurrentNote = 0;             // ws: current glissando note 
+int glissTargetNote = 0;             // ws: target glissando note 
+int glissInterval = 0;   // 0,1-3        // ws: number of semitones step size between notes for glissando mode 
 int fingeredNote;    // note calculated from fingering (switches), transpose and octave settings
 int fingeredNoteUntransposed; // note calculated from fingering (switches), for on the fly settings
 byte activeNote;     // note playing
@@ -1802,6 +1810,12 @@ void extraController() {
       oldextrac2 = 0;
     }
   }
+//ws: use lip sensor (exSensor) to controll glissInterval
+  if (glissEnable && (exSensor >= extracThrVal) ){
+      glissInterval = map(constrain(exSensor, extracThrVal, extracMaxVal), extracThrVal, extracMaxVal, 1, 3);
+  } else {
+      glissInterval = 0; // special case: 0 means go directly to target note
+  }
 }
 
 //***********************************************************
@@ -2030,7 +2044,7 @@ void autoCal() {
 //***********************************************************
 
 void readSwitches() {
-
+ int glissNoteDiff = 0; // ws: glissTargetNote - glissCurrentNote
 #if defined(NURAD)
 
   switch (lap){
@@ -2053,7 +2067,7 @@ void readSwitches() {
         else if (touchValueRollers[rPin1] < ctouchThrVal) octaveR = 1; //R1
         else if (lastOctaveR > 1) {
           octaveR = lastOctaveR;
-          if (otfKey && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
+          if (otfKey && polySelect && (polySelect<PolySelect::ERotatorA) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
           if (mainState == NOTE_OFF) currentRotation = 3; //rotator reset by releasing rollers
         }
   //if rollers are released and we are not coming down from roller 1, stay at the higher octave
@@ -2109,7 +2123,7 @@ void readSwitches() {
       else if (R1) octaveR = 1;  //R1
       else if (lastOctaveR > 1) {
         if (rollerMode) octaveR = lastOctaveR; //if rollers are released and we are not coming down from roller 1, stay at the higher octave
-        if (otfKey && !rSum && polySelect && (polySelect<RT1) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
+        if (otfKey && !rSum && polySelect && (polySelect<PolySelect::ERotatorA) && rotatorOn && (mainState == NOTE_OFF)) hmzKey = fingeredNote%12;
         if (mainState == NOTE_OFF) currentRotation = 3; //rotator reset by releasing rollers
       }
       if ((3 == rollerMode) && R6 && !R5 && (6 == lastOctaveR)) octaveR = 7; // Bonus octave on top
@@ -2233,14 +2247,35 @@ void readSwitches() {
       - 12*LH3 - 24*LH2  //Octaves on LH2 and LH3
       + octaveR*12;       //Octave rollers
       */
-  } else { // EVI fingering with reversed octave rollers
+  } else if (4==fingering) { // EVR is EVI fingering with reversed octave rollers
       fingeredNoteUntransposed = startNote
       - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
       - 5*LH1              //Fifth key
       + 2*RHs + 4*RHp3  //Trill keys +2 and +4
       + (!LH2 || !LH3 || LHp2) // Trill +1 achieved by lifting finger from LH2 or LH3, or touching LHp2
       + (6-octaveR)*12;       //Octave rollers, reversed
+  } else if (5==fingering) { // XVI fingering (extended EVI)   ws: added XVI, XVR
+      fingeredNoteUntransposed = startNote
+      - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
+      - 5*LH1              //Fifth key
+      + 4*(!LH2)           // Maj Third up when lift
+      + 3*(!LH3)           // Min Third up when lift
+      + 2*RHs + 4*RHp3  //Trill keys +2 and +4
+      + LHp1 + RHp1               // Trill keys +1 
+      - LHp2 - 2*RHp2               // Trill keys -1 and -2 
+      + octaveR*12;       //Octave rollers
+  } else { // XVR is XVI fingering with reversed octave rollers
+      fingeredNoteUntransposed = startNote
+      - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
+      - 5*LH1              //Fifth key
+      + 4*(!LH2)           // Maj Third up when lift
+      + 3*(!LH3)           // Min Third up when lift
+      + 2*RHs + 4*RHp3  //Trill keys +2 and +4
+      + LHp1 + RHp1               // Trill keys +1 
+      - LHp2 - 2*RHp2               // Trill keys -1 and -2 
+      + (6-octaveR)*12;       //Octave rollers, reversed    
   }
+  
 
   int fingeredNoteRead = fingeredNoteUntransposed + (octave - 3) * 12 + transpose - 12 + qTransp + harmonicResult[harmSelect][harmonics] + brHarmonicResult[brHarmSelect][brHarmonics]; //lip sensor and breath harmonics
 
@@ -2342,15 +2377,57 @@ void readSwitches() {
   if (pinkyKey) pitchlatch = fingeredNoteUntransposed; //use pitchlatch to make settings based on note fingered
 
 #endif
+ 
+  /* ws: inserted Glissando feature between fingeredNoteRead and fingeredNote  */
+  // create glissando notes between previous note and current one if not chording and still blowing
+  glissEnable = (glissSetting > 4);
+  glissTime = glissEnable ? glissSetting*5 : 0;
+  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0);
 
   if (fingeredNoteRead != lastFingering) { //
     // reset the debouncing timer
     lastDeglitchTime = millis();
+    newFingeringFirstTimeFlag = true;  //ws
   }
   if ((millis() - lastDeglitchTime) > deglitch) {
     // whatever the reading is at, it's been there for longer
     // than the debounce delay, so take it as the actual current state
-    fingeredNote = fingeredNoteRead;
+    // fingeredNote = fingeredNoteRead; //ws
+    glissTargetNote = fingeredNoteRead;
+    if (glissActive && newFingeringFirstTimeFlag) {
+      lastGlissTime = millis() + glissTime; // ensure new start of gliss
+      newFingeringFirstTimeFlag = false;
+    }
   }
   lastFingering = fingeredNoteRead;
+
+  // ws: added gliss logic
+  if (glissActive) {
+    glissNoteDiff = glissTargetNote - glissCurrentNote;
+    if (glissTargetNote != glissCurrentNote){
+      if ((millis() - lastGlissTime) >= glissTime) {
+        if( glissNoteDiff < 0 ) //current higher than target
+        {
+            glissCurrentNote -= (abs(glissNoteDiff) >= abs(glissInterval)) 
+                            ? glissInterval : 1;
+                         //   : (((glissCurrentNote - glissInterval) - glissTargetNote) < glissNoteDiff 
+                         //   ? glissInterval : 1) ;
+        }
+        else if ( glissNoteDiff > 0)  // target higher than current
+        {
+            glissCurrentNote += (abs(glissNoteDiff) >= abs(glissInterval)) 
+                            ? glissInterval : 1;
+                         //   : (((glissCurrentNote + glissInterval) - glissTargetNote) < glissNoteDiff 
+                         //   ? glissInterval : 1) ;
+        }
+        lastGlissTime = millis();
+      }
+    }
+  }
+  else{
+    glissCurrentNote = glissTargetNote; // pass thru the fingeredNoteRead
+  }
+  fingeredNote = glissCurrentNote;
+
+
 }

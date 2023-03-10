@@ -1620,6 +1620,22 @@ const MenuEntrySub harmSelectMenu = {
   , nullptr
 };
 
+//ws: menu to glissTime (time between glissando notes in mS)
+const MenuEntrySub glissandoMenu = {
+  MenuType::ESub, "EXCT GLISS",  "GLISS TIME", &glissSetting, 4, 25, MenuEntryFlags::EMenuEntryWrap,
+  [](SubMenuRef __unused, char* out, const char** label) {
+    if(glissSetting>=5){
+      numToString(glissSetting*5, out); //0-4 is off 5-25 is 25-125mS
+      *label = "ms";
+    }else{
+      strncpy(out, "OFF", 4);
+    }
+  },
+[](const MenuEntrySub & __unused sub) { writeSetting(GLISSSET_ADDR,glissSetting); }
+  , nullptr
+};
+
+
 const MenuEntryStateCh vibratoSubMenu = { MenuType::EStateChange, "VIBRATO", VIBRATO_MENU };
 
 const MenuEntrySub deglitchMenu = {
@@ -1679,9 +1695,9 @@ const MenuEntrySub lvlCtrlCCMenu = {
 
 #if defined(NURAD)
 const MenuEntrySub fingeringMenu = {
-  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 4, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 6, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused,char* out, const char ** __unused unit) {
-    const char* labs[] = { "EWI", "EWX", "SAX", "EVI", "EVR" };
+    const char* labs[] = { "EWI", "EWX", "SAX", "EVI", "EVR", "XVI", "XVR" };  //ws added XVI,XVR
     strncpy(out, labs[fingering], 4);
   },
   [](SubMenuRef __unused sub) { writeSetting(FINGER_ADDR,fingering); }
@@ -1742,7 +1758,8 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&lpinky3Menu,
   (MenuEntry*)&fingeringMenu,
   (MenuEntry*)&rollerMenu,
-  (MenuEntry*)&pitchBendMenu
+  (MenuEntry*)&pitchBendMenu,
+  (MenuEntry*)&glissandoMenu    // ws
 };
 #else
 const MenuEntry* controlMenuEntries[] = {
@@ -1762,7 +1779,8 @@ const MenuEntry* controlMenuEntries[] = {
   (MenuEntry*)&lvlCtrlCCMenu,
   (MenuEntry*)&fingeringMenu,
   (MenuEntry*)&rollerMenu,
-  (MenuEntry*)&pitchBendMenu
+  (MenuEntry*)&pitchBendMenu,
+  (MenuEntry*)&glissandoMenu		// ws 
 };
 #endif
 

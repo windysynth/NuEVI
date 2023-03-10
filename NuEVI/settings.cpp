@@ -183,6 +183,10 @@ void readEEPROM(const bool factoryReset) {
             writeSetting(ROLLER_ADDR, ROLLER_FACTORY);
         }
 
+        if(settingsVersion < 46) {
+            writeSetting(GLISSSET_ADDR, GLISSSEL_FACTORY);  // ws
+        }
+
         writeSetting(VERSION_ADDR, EEPROM_VERSION);
     }
 
@@ -241,7 +245,7 @@ void readEEPROM(const bool factoryReset) {
     levelCC         = readSettingBounded(LEVEL_CC_ADDR, 0, 127, LEVEL_CC_FACTORY);
     levelVal        = readSettingBounded(LEVEL_VAL_ADDR, 0, 127, LEVEL_VAL_FACTORY);
     #if defined(NURAD)
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 4, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 6, FINGER_FACTORY); // ws: added XVI and XVR
     #else
     fingering       = readSettingBounded(FINGER_ADDR, 0, 3, FINGER_FACTORY);
     #endif
@@ -280,6 +284,7 @@ void readEEPROM(const bool factoryReset) {
     cvScale         = readSettingBounded(CVSCALE_ADDR, 1, 199, CVSCALE_FACTORY);
     cvVibRate       = readSettingBounded(CVRATE_ADDR, 0, 8, CVRATE_FACTORY);
     rollerMode      = readSettingBounded(ROLLER_ADDR, 0, 3, ROLLER_FACTORY);
+    glissSetting      = readSettingBounded(GLISSSET_ADDR, 0, 25, GLISSSEL_FACTORY);  // ws
     
     //Flags stored in bit field
     fastBoot         = (dipSwBits & (1<<DIPSW_FASTBOOT))?1:0;

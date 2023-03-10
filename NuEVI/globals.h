@@ -108,7 +108,7 @@ extern unsigned short fastPatch[7];
 extern unsigned short extraCT2; // OFF:1-127
 extern unsigned short levelCC; // 0-127
 extern unsigned short levelVal; // 0-127
-extern unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+extern unsigned short fingering; // 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR ws: added XVI,XVR
 extern unsigned short rollerMode; //0-2
 extern unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 extern unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -116,6 +116,7 @@ extern unsigned short harmSetting; // 0-7
 extern unsigned short harmSelect; // 0-5
 extern unsigned short brHarmSetting; // 0-7
 extern unsigned short brHarmSelect; // 0-3
+extern unsigned short glissSetting; // 0-25 (OFF is 0-4, 5-25 is 25-125mS) ws
 extern PolySelect polySelect;  // OFF, MGR, MGD, MND, MNH, FWC, RTA, RTB or RTC
 extern unsigned short fwcType; // 6, m6, 7, m7
 extern unsigned short fwcLockH; // OFF:ON
