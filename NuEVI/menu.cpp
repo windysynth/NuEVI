@@ -1504,9 +1504,9 @@ const MenuPage breathMenuPage = {
 // Control menu
 
 const MenuEntrySub biteCtlMenu = {
-  MenuType::ESub, "BITE CTL", "BITE DEST", &biteControl, 0, 3, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "BITE CTL", "BITE DEST", &biteControl, 0, 4, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused,char* out, const char ** __unused unit) {
-    const char* labs[] = { "OFF", "VIB", "GLD", "CC" };
+    const char* labs[] = { "OFF", "VIB", "GLD", "CC", "GLS" }; // ws: added GLS for glissando
     strncpy(out, labs[biteControl], 4);
   },
   [](SubMenuRef __unused sub) { writeSetting(BITECTL_ADDR,biteControl); }
@@ -1622,7 +1622,7 @@ const MenuEntrySub harmSelectMenu = {
 
 //ws: menu to glissTime (time between glissando notes in mS)
 const MenuEntrySub glissandoMenu = {
-  MenuType::ESub, "EXCT GLISS",  "GLISS TIME", &glissSetting, 4, 25, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "GLISS",  "GLISS TIME", &glissSetting, 4, 25, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused, char* out, const char** label) {
     if(glissSetting>=5){
       numToString(glissSetting*5, out); //0-4 is off 5-25 is 25-125mS

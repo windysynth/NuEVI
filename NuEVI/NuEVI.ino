@@ -117,7 +117,7 @@ unsigned short vibDirection = DNWD; //direction of first vibrato wave UPWD or DN
 unsigned short vibSensBite = 2; // vibrato sensitivity (bite)
 unsigned short vibSquelchBite = 12; //vibrato signal squelch (bite)
 unsigned short vibControl = 0;
-unsigned short biteControl = 0; // OFF, VIB, GLD, CC
+unsigned short biteControl = 0; // OFF, VIB, GLD, CC, GLS (ws)
 unsigned short leverControl = 0; // OFF, VIB, GLD, CC
 unsigned short biteCC = 0; // 0 - 127
 unsigned short leverCC = 0; // 0 -127
@@ -1246,6 +1246,7 @@ void loop() {
     pitch_bend();
     extraController();
     biteCC_();
+    gliss(); // ws
     leverCC_();
     ccSendTime = currentTime;
   }
@@ -1811,11 +1812,13 @@ void extraController() {
     }
   }
 //ws: use lip sensor (exSensor) to controll glissInterval
+/*
   if (glissEnable && (exSensor >= extracThrVal) ){
-      glissInterval = map(constrain(exSensor, extracThrVal, extracMaxVal), extracThrVal, extracMaxVal, 1, 3);
+      glissInterval = map(constrain(exSensor, extracThrVal, extracMaxVal), extracThrVal, extracMaxVal, 0, 3);
   } else {
       glissInterval = 0; // special case: 0 means go directly to target note
   }
+*/
 }
 
 //***********************************************************
@@ -1929,6 +1932,23 @@ void biteCC_() {
     }
   }
 }
+
+void gliss() {  // ws
+  if (4 == biteControl) { // "GLS"
+    // Glissando Interval is controlled with the bite sensor in the mouthpiece
+    if (biteJumper) { //PBITE (if pulled low with jumper or if on a NuRAD, use pressure sensor instead of capacitive bite sensor)
+      biteSensor=analogRead(bitePressurePin); // alternative kind bite sensor (air pressure tube and sensor)  PBITE
+    } else {
+      biteSensor = touchRead(bitePin);     // get sensor data, do some smoothing - SENSOR PIN 17 - PCB PINS LABELED "BITE" (GND left, sensor pin right)
+    }
+    if (glissEnable && (biteSensor >= portamThrVal)  ){
+      glissInterval = map(constrain(biteSensor, portamThrVal, portamMaxVal), portamThrVal, portamMaxVal, 0, 4); // limit gliss Interval to max maj 3rd
+    } else {
+      glissInterval = 0; // special case: 0 means go directly to target note
+    }
+  }
+}
+
 
 void leverCC_() {
   int leverCClevel = 0;
@@ -2382,7 +2402,7 @@ void readSwitches() {
   // create glissando notes between previous note and current one if not chording and still blowing
   glissEnable = (glissSetting > 4);
   glissTime = glissEnable ? glissSetting*5 : 0;
-  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0);
+  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0)&&(slurSostenuto==0);
 
   if (fingeredNoteRead != lastFingering) { //
     // reset the debouncing timer
