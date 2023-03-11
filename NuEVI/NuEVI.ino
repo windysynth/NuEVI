@@ -1942,7 +1942,7 @@ void gliss() {  // ws
       biteSensor = touchRead(bitePin);     // get sensor data, do some smoothing - SENSOR PIN 17 - PCB PINS LABELED "BITE" (GND left, sensor pin right)
     }
     if (glissEnable && (biteSensor >= portamThrVal)  ){
-      glissInterval = map(constrain(biteSensor, portamThrVal, portamMaxVal), portamThrVal, portamMaxVal, 0, 4); // limit gliss Interval to max maj 3rd
+      glissInterval = map(constrain(biteSensor, portamThrVal, portamMaxVal), portamThrVal, portamMaxVal, 4, 1); // limit gliss Interval to max maj 3rd
     } else {
       glissInterval = 0; // special case: 0 means go directly to target note
     }
