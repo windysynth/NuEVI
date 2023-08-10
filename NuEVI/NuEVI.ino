@@ -513,6 +513,7 @@ bool glissActive = 0;         // ws: currently making glissNotes
 bool newFingeringFirstTimeFlag = false;  //ws
 int glissCurrentNote = 0;             // ws: current glissando note 
 int glissTargetNote = 0;             // ws: target glissando note 
+int glissTargetInterval = 0;             // ws:  target glissando note - starting fingered note
 int glissInterval = 0;   // 0,1-3        // ws: number of semitones step size between notes for glissando mode 
 int fingeredNote;    // note calculated from fingering (switches), transpose and octave settings
 int fingeredNoteUntransposed; // note calculated from fingering (switches), for on the fly settings
@@ -2402,7 +2403,8 @@ void readSwitches() {
   // create glissando notes between previous note and current one if not chording and still blowing
   glissEnable = (glissSetting > 4);
   glissTime = glissEnable ? glissSetting*5 : 0;
-  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0)&&(slurSostenuto==0);
+  //glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0)&&(slurSostenuto==0);
+  glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(slurSostenuto==0);
 
   if (fingeredNoteRead != lastFingering) { //
     // reset the debouncing timer
@@ -2413,6 +2415,7 @@ void readSwitches() {
     // whatever the reading is at, it's been there for longer
     // than the debounce delay, so take it as the actual current state
     // fingeredNote = fingeredNoteRead; //ws
+    glissTargetInterval = fingeredNoteRead - glissTargetNote; //ws measure inteval between new fingered note and last target note
     glissTargetNote = fingeredNoteRead;
     if (glissActive && newFingeringFirstTimeFlag) {
       lastGlissTime = millis() + glissTime; // ensure new start of gliss
@@ -2422,6 +2425,11 @@ void readSwitches() {
   lastFingering = fingeredNoteRead;
 
   // ws: added gliss logic
+  /*
+   * if glissTargetInterval is bigger than glissInterval gliss toward target at 
+   * glissInterval unless too close, then gliss by 1 semitone. 
+   * If gliss started closer than glissInterval, don't gliss
+  */
   if (glissActive) {
     glissNoteDiff = glissTargetNote - glissCurrentNote;
     if (glissTargetNote != glissCurrentNote){
@@ -2429,16 +2437,12 @@ void readSwitches() {
         if( glissNoteDiff < 0 ) //current higher than target
         {
             glissCurrentNote -= (abs(glissNoteDiff) >= abs(glissInterval)) 
-                            ? glissInterval : 1;
-                         //   : (((glissCurrentNote - glissInterval) - glissTargetNote) < glissNoteDiff 
-                         //   ? glissInterval : 1) ;
+                            ? glissInterval : abs(glissTargetInterval) > abs(glissInterval) ? 1 : abs(glissNoteDiff);
         }
         else if ( glissNoteDiff > 0)  // target higher than current
         {
             glissCurrentNote += (abs(glissNoteDiff) >= abs(glissInterval)) 
-                            ? glissInterval : 1;
-                         //   : (((glissCurrentNote + glissInterval) - glissTargetNote) < glissNoteDiff 
-                         //   ? glissInterval : 1) ;
+                            ? glissInterval : abs(glissTargetInterval) > abs(glissInterval) ? 1 : abs(glissNoteDiff);                             
         }
         lastGlissTime = millis();
       }
