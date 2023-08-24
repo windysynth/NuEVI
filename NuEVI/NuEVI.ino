@@ -93,7 +93,7 @@ unsigned short priority; // mono priority for rotator chords
 unsigned short extraCT2; // OFF:1-127
 unsigned short levelCC; // 0-127
 unsigned short levelVal; // 0-127
-unsigned short fingering; // 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR  ws added XVI, XVR
+unsigned short fingering; // NuRAD: 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR; NuEVI: 0-5 EVI,EVR,TPT,HRN,XVI,XVR;  ws added XVI and XVR
 unsigned short rollerMode; //0-2
 unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -2382,11 +2382,25 @@ void readSwitches() {
       + 5                 //Horn in F
       + 2*K5 + K6 + trill3_interval*K7  //Trill keys. 3rd trill key interval controlled by setting
       + 12 + rollerHarmonic[K4][octaveR]; // roller harmonics
+  } else if (4 == fingering){ //XVI fingering
+    fingeredNoteUntransposed = startNote
+      - 2*K1 - K2 - 3*K3  //"Trumpet valves" (only count if the corresponding trill key is not also pressed)
+      - 5*K4              //Fifth key
+      + 2*K5*(!K1) + K6*(!K2) + trill3_interval*K7*(!K3)  //Trill keys (only count if valve key not pressed); 3rd trill key interval controlled by setting
+      - 2*K1*K5 - K2*K6 - 3*K3*K7  // if both valve and trill is press, go down by twice as much for that finger
+      + octaveR*12;       //Octave rollers
+      
+  } else if (5 == fingering){ //XVR fingering
+    byte revOct = 6 - octaveR;
+    fingeredNoteUntransposed = startNote
+      - 2*K1 - K2 - 3*K3  //"Trumpet valves" (only count if the corresponding trill key is not also pressed)
+      - 5*K4              //Fifth key
+      + 2*K5*(!K1) + K6*(!K2) + trill3_interval*K7*(!K3)  //Trill keys (only count if valve key not pressed); 3rd trill key interval controlled by setting
+      - 2*K1*K5 - K2*K6 - 3*K3*K7  // if both valve and trill is press, go down by twice as much for that finger
+      + revOct*12;       //Octave rollers
   }
 
-
-
-  if (K3 && K7){
+  if (K3 && K7 && (fingering <= 3)){
     if (4 == trill3_interval) fingeredNoteUntransposed+=2; else fingeredNoteUntransposed+=4;
   }
 

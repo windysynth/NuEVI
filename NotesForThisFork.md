@@ -16,6 +16,15 @@ I have mine programmed so LHp3 decreases by 7 semitones and LHs increases by 3 s
 This way the almost the entire range of a trumpet can be reached witout changing roller positions.
 Also, any not fingered with the right hand can easily be arpegiated by lifting LH2 then LH3 or vice versa. 
 
+## NuEVI XVI and XVR fingering (ver >= 1w6s6)
+    * K1 and K5 at the same time decreases note by 2 additional semitones
+    * K2 and K6 at the same time decreases note by 1 additional semitone
+    * K3 and K7 at the same time decreases note by 3 additional semitones
+
+So, for exmample, if you are already holding K1 down, you can slide your 
+finger and touch the K5 trill key and go down 2 more semitones. 
+
+
 ## Gliss(ando) BITE CLT/GLS menu additions.
 Set SETUP CTL/BITE CTL to GLS
 Then in SETUP CTL/GLISS set the rate between notes in mS (0 mS for off).

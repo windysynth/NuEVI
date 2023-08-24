@@ -1705,9 +1705,9 @@ const MenuEntrySub fingeringMenu = {
 };
 #else
 const MenuEntrySub fingeringMenu = {
-  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 3, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 5, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused,char* out, const char ** __unused unit) {
-    const char* labs[] = { "EVI", "EVR", "TPT", "HRN" };
+    const char* labs[] = { "EVI", "EVR", "TPT", "HRN", "XVI", "XVR" };  //ws added XVI, XVR
     strncpy(out, labs[fingering], 4);
   },
   [](SubMenuRef __unused sub) { writeSetting(FINGER_ADDR,fingering); }
