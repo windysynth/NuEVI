@@ -247,7 +247,7 @@ void readEEPROM(const bool factoryReset) {
     #if defined(NURAD)
     fingering       = readSettingBounded(FINGER_ADDR, 0, 6, FINGER_FACTORY); // ws: added XVI and XVR
     #else
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 3, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 5, FINGER_FACTORY);
     #endif
     lpinky3         = readSettingBounded(LPINKY3_ADDR, 0, 25, LPINKY3_FACTORY);
     batteryType     = readSettingBounded(BATTYPE_ADDR, 0, 2, BATTYPE_FACTORY);

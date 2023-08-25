@@ -16,7 +16,7 @@ I have mine programmed so LHp3 decreases by 7 semitones and LHs increases by 3 s
 This way the almost the entire range of a trumpet can be reached witout changing roller positions.
 Also, any not fingered with the right hand can easily be arpegiated by lifting LH2 then LH3 or vice versa. 
 
-## NuEVI XVI and XVR fingering (ver >= 1w6s6)
+## NuEVI XVI and XVR fingering (ver >= 1w6s7)
     * K1 and K5 at the same time decreases note by 2 additional semitones
     * K2 and K6 at the same time decreases note by 1 additional semitone
     * K3 and K7 at the same time decreases note by 3 additional semitones
