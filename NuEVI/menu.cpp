@@ -1622,10 +1622,10 @@ const MenuEntrySub harmSelectMenu = {
 
 //ws: menu to glissTime (time between glissando notes in mS)
 const MenuEntrySub glissandoMenu = {
-  MenuType::ESub, "GLISS",  "GLISS TIME", &glissSetting, 4, 25, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "GLISS",  "GLISS TIME", &glissSetting, 7, 125, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused, char* out, const char** label) {
-    if(glissSetting>=5){
-      numToString(glissSetting*5, out); //0-4 is off 5-25 is 25-125mS
+    if(glissSetting>=8){
+      numToString(glissSetting, out); //0-7 is off; 8-125 is 8-125mS
       *label = "ms";
     }else{
       strncpy(out, "OFF", 4);

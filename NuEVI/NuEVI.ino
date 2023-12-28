@@ -79,8 +79,8 @@ unsigned short PBdepth;   // OFF:1-12 divider
 unsigned short extraCT;   // OFF:MW:FP:CF:SP
 unsigned short vibrato;   // OFF:1-9
 unsigned short deglitch;  // 0-70 ms in steps of 5
-unsigned short glissTime = 65;  // ws: 25-300ms in steps of 5
-unsigned short glissSetting; // ws: OFF:25-125 (0,5-25)
+unsigned short glissTime = 30;  // ws: 8-125ms in steps of 1
+unsigned short glissSetting; // ws: OFF:8-125 (0,8-125)
 unsigned short patch;     // 1-128
 unsigned short octave;
 unsigned short curve;
@@ -2415,8 +2415,8 @@ void readSwitches() {
  
   /* ws: inserted Glissando feature between fingeredNoteRead and fingeredNote  */
   // create glissando notes between previous note and current one if not chording and still blowing
-  glissEnable = (glissSetting > 4);
-  glissTime = glissEnable ? glissSetting*5 : 0;
+  glissEnable = (glissSetting > 7);
+  glissTime = glissEnable ? glissSetting : 0;
   //glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(parallelChord == 0)&&(subOctaveDouble == 0)&&(slurSostenuto==0);
   glissActive = glissEnable&&(mainState == NOTE_ON)&&(glissInterval>0)&&(slurSustain == 0)&&(slurSostenuto==0);
 
