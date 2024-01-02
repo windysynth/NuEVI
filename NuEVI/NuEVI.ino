@@ -80,7 +80,7 @@ unsigned short extraCT;   // OFF:MW:FP:CF:SP
 unsigned short vibrato;   // OFF:1-9
 unsigned short deglitch;  // 0-70 ms in steps of 5
 unsigned short glissTime = 30;  // ws: 8-125ms in steps of 1
-unsigned short glissSetting; // ws: OFF:8-125 (0,8-125)
+unsigned short glissSetting; // ws: OFF:8-127 (0,8-127)
 unsigned short patch;     // 1-128
 unsigned short octave;
 unsigned short curve;

@@ -116,7 +116,7 @@ extern unsigned short harmSetting; // 0-7
 extern unsigned short harmSelect; // 0-5
 extern unsigned short brHarmSetting; // 0-7
 extern unsigned short brHarmSelect; // 0-3
-extern unsigned short glissSetting; // 0-25 (OFF is 0-4, 5-25 is 25-125mS) ws
+extern unsigned short glissSetting; // 0-127 (OFF is 0-7, 8-127 is 8-127mS) ws
 extern PolySelect polySelect;  // OFF, MGR, MGD, MND, MNH, FWC, RTA, RTB or RTC
 extern unsigned short fwcType; // 6, m6, 7, m7
 extern unsigned short fwcLockH; // OFF:ON

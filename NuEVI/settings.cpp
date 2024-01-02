@@ -284,7 +284,7 @@ void readEEPROM(const bool factoryReset) {
     cvScale         = readSettingBounded(CVSCALE_ADDR, 1, 199, CVSCALE_FACTORY);
     cvVibRate       = readSettingBounded(CVRATE_ADDR, 0, 8, CVRATE_FACTORY);
     rollerMode      = readSettingBounded(ROLLER_ADDR, 0, 3, ROLLER_FACTORY);
-    glissSetting      = readSettingBounded(GLISSSET_ADDR, 0, 25, GLISSSEL_FACTORY);  // ws
+    glissSetting      = readSettingBounded(GLISSSET_ADDR, 0, 127, GLISSSEL_FACTORY);  // ws
     
     //Flags stored in bit field
     fastBoot         = (dipSwBits & (1<<DIPSW_FASTBOOT))?1:0;
