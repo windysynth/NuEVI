@@ -36,6 +36,10 @@ If you change amount during the run, the step size changes. If you release the b
 the note goes to the target note immediately.
 If you change notes (still legato) before reaching the 2nd note, it starts going toward the new target.
 
+## Added Vibrato-to-Breath Feature (version 1w7s0)
+SETUP CTRL > VIBRATO > VIB2BRDIR > NEG or POS  (direction to change breath when vibrato increases in pitch)
+SETUP CTRL > VIBRATO > VIB2BRAMT > 0 to 30  (30 adds all of the vibrato value to the breath; 0 adds none)
+
 ## Version Numbering
 I got the 1.5b9 version from Johan because that was in the NuRAD I purchased and wanted to start there.
 I'm not sure what was intended in the numbering scheme for the NuEVI project, but I started with 1.5b9 and I was just going to increase it to 1.5b10 but that string didn't fit on the screen, so I just change to 1.5c1.

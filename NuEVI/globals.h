@@ -104,6 +104,8 @@ extern unsigned short vibDirection; //direction of first vibrato wave UPWD or DN
 extern unsigned short vibSensBite; // vibrato sensitivity (bite)
 extern unsigned short vibSquelchBite; //vibrato signal squelch (bite)
 extern unsigned short vibControl;
+extern unsigned short vib2BreathAmount;
+extern unsigned short vib2BrDirection;
 extern unsigned short fastPatch[7];
 extern unsigned short extraCT2; // OFF:1-127
 extern unsigned short levelCC; // 0-127

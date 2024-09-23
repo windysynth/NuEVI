@@ -1886,6 +1886,29 @@ const MenuEntrySub vibDirMenu = {
   , nullptr
 };
 
+const MenuEntrySub vib2BrDirMenu = {
+  MenuType::ESub, "VIB2BRDIR", "DIRECTION", &vib2BrDirection , 0, 1, MenuEntryFlags::EMenuEntryWrap,
+  [](SubMenuRef __unused, char* out, const char** __unused unit) {
+    if (DNWD == vib2BrDirection)
+      strncpy(out, "NEG", 4);
+    else
+      strncpy(out, "POS", 4);
+  },
+  [](const MenuEntrySub & __unused sub) { writeSetting(VIB2BR_DIRECTION_ADDR,vib2BrDirection); }
+  , nullptr
+};
+
+const MenuEntrySub vib2BrAmtMenu = {
+  MenuType::ESub, "VIB2BRAMT", "AMOUNT", &vib2BreathAmount, 0, 30, MenuEntryFlags::ENone,
+  [](SubMenuRef __unused, char* textBuffer, const char** __unused unit) {
+    numToString(vib2BreathAmount, textBuffer);
+  },
+  [](const MenuEntrySub & __unused sub) { writeSetting(VIB2BR_AMOUNT_ADDR,vib2BreathAmount); }
+  , nullptr
+};
+
+
+
 const MenuEntry* vibratorMenuEntries[] = {
     //(MenuEntry*)&vibControlMenu,
     (MenuEntry*)&vibDepthMenu,
@@ -1895,6 +1918,8 @@ const MenuEntry* vibratorMenuEntries[] = {
     (MenuEntry*)&vibSquelchMenu,
     (MenuEntry*)&vibSenseBiteMenu,
     (MenuEntry*)&vibSquelchBiteMenu,
+    (MenuEntry*)&vib2BrDirMenu,
+    (MenuEntry*)&vib2BrAmtMenu,
 };
 
 const MenuPage vibratoMenuPage = {

@@ -94,9 +94,11 @@
 #define CVSCALE_ADDR 182
 #define CVRATE_ADDR 184
 #define ROLLER_ADDR 186
-#define GLISSSET_ADDR 188    // ws
+#define GLISSSET_ADDR 188            // ws
+#define VIB2BR_DIRECTION_ADDR 190    // ws
+#define VIB2BR_AMOUNT_ADDR 192       // ws
 
-#define EEPROM_SIZE 190 //Last address +2   ws
+#define EEPROM_SIZE 194 //Last address +2   ws
 
 
 //DAC output modes
@@ -200,6 +202,9 @@
 #define CVSCALE_FACTORY 100 // 100 is zero scaling
 #define CVRATE_FACTORY 3 // 3 is 5.5Hz
 #define ROLLER_FACTORY 1
+#define VIB2BRDIR_FACTORY 1  // ws
+#define VIB2BRAMT_FACTORY 10  // ws
+
 
 #define NO_CHECKSUM 0x7F007F00
 
