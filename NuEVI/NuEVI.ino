@@ -121,7 +121,7 @@ unsigned short biteControl = 0; // OFF, VIB, GLD, CC, GLS (ws)
 unsigned short leverControl = 0; // OFF, VIB, GLD, CC
 unsigned short biteCC = 0; // 0 - 127
 unsigned short leverCC = 0; // 0 -127
-unsigned short vib2BreathAmount = 10; // 0-30
+unsigned short vib2BreathAmount = 6; // 0-10
 unsigned short vib2BrDirection = DNWD; //direction of first vibrato wave UPWD or DNWD
 
 unsigned short cvTune;  // 1 - 199 representing -99 to +99 in menu (offset of 100 to keep postitive)
@@ -176,7 +176,6 @@ static unsigned long pixelUpdateTime = 0;
 static const unsigned long pixelUpdateInterval = 80;
 
 unsigned long lastDeglitchTime = 0;         // The last time the fingering was changed
-boolean glitching = false;                      // on when 2nd time still deglitching
 unsigned long lastGlissTime = 0;            // The last time the glissCurrentNote was created  (ws)
 unsigned long ccSendTime = 0L;              // The last time we sent CC values
 unsigned long ccSendTime2 = 0L;             // The last time we sent CC values 2 (slower)
@@ -834,7 +833,6 @@ void loop() {
       // Value has risen above threshold. Move to the RISE_WAIT
       // state. Record time and initial breath value.
       breath_on_time = millis();
- //w.s.: if (glitching) midiSendControlChange(79, 127); else midiSendControlChange(79, 0);
       initial_breath_value = pressureSensor;
       mainState = RISE_WAIT; // Go to next state
     }
@@ -1127,12 +1125,10 @@ void loop() {
       // Value fell below threshold before velocity sample delay time passed. Return to
       // NOTE_OFF state (e.g. we're ignoring a short blip of breath)
       mainState = NOTE_OFF;
-     //w.s.: midiSendControlChange(79, 0); glitching = false;
     }
   } else if (mainState == NOTE_ON) {
     if ((pressureSensor < breathThrVal) && !gateOpen) {
       // Value has fallen below threshold - turn the note off
-     //w.s.: midiSendControlChange(79, 0); glitching = false;
       activeNote = noteValueCheck(activeNote);
       if (priority) {
         midiSendNoteOff(activeNote); //  send Note Off message
@@ -1169,7 +1165,6 @@ void loop() {
         // Player has moved to a new fingering while still blowing.
         // Send a note off for the current note and a note on for
         // the new note.
-    //w.s.: if (glitching) midiSendControlChange(79, 127); else midiSendControlChange(79, 0);
         if (!velocity) {
           unsigned int breathValHires = breathCurve(map(constrain(breathLevel, breathThrVal, breathMaxVal), breathThrVal, breathMaxVal, 0, 16383));
           velocitySend = (breathValHires >> 7) & 0x007F;
@@ -1476,10 +1471,13 @@ int patchLimit(int value) {
 void breath() {
   int breathCCval, breathCCvalFine,breathCC2val;
   unsigned int breathCCvalHires;
-  int breathFromVib = (int)(((float)vibSignal)*(float)vib2BreathAmount/30.0f); 
+  int breathFromVib = (int)(((float)vibSignal)*(float)vib2BreathAmount/10.0f); 
   if ((bool)vib2BrDirection) {
     breathFromVib = -breathFromVib;
+  } else if (mainState != NOTE_ON) {
+    breathFromVib = 0;
   }
+
   breathLevel = constrain(pressureSensor, breathThrVal, breathMaxVal);
   breathLevel = constrain(breathLevel + breathFromVib, breathThrVal, breathMaxVal); // ws 
   //breathLevel = breathLevel*0.6+pressureSensor*0.4; // smoothing of breathLevel value
@@ -2435,20 +2433,12 @@ void readSwitches() {
   if (fingeredNoteRead != lastFingering) { //
     // reset the debouncing timer
     lastDeglitchTime = millis();
-    // ws: glitching flag 
-    if (true == newFingeringFirstTimeFlag){
-        glitching = true;
-    }
-    else{
-        glitching = false;
-    }
     newFingeringFirstTimeFlag = true;  //ws
   }
   if ((millis() - lastDeglitchTime) > deglitch) {
     // whatever the reading is at, it's been there for longer
     // than the debounce delay, so take it as the actual current state
     // fingeredNote = fingeredNoteRead; //ws
-    glitching = false; 
     glissTargetInterval = fingeredNoteRead - glissTargetNote; //ws measure inteval between new fingered note and last target note
     glissTargetNote = fingeredNoteRead;
     if (glissActive && newFingeringFirstTimeFlag) {

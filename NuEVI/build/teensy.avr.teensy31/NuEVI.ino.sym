@@ -1,0 +1,1371 @@
+
+C:\Users\Tim King\AppData\Local\Temp\arduino\sketches\5AA0DBD714CC9155A83A0F44ABE2EC65/NuEVI.ino.elf:     file format elf32-littlearm
+
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00016028 l    d  .fini	00000000 .fini
+0001602c l    d  .ARM.exidx	00000000 .ARM.exidx
+1fff8000 l    d  .usbdescriptortable	00000000 .usbdescriptortable
+1fff8200 l    d  .dmabuffers	00000000 .dmabuffers
+1fff83bc l    d  .usbbuffers	00000000 .usbbuffers
+1fff8c30 l    d  .data	00000000 .data
+1fff98f0 l    d  .bss	00000000 .bss
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_loclists	00000000 .debug_loclists
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_rnglists	00000000 .debug_rnglists
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_line_str	00000000 .debug_line_str
+00000000 l    df *ABS*	00000000 mk20dx128.c
+0000e67c l     F .text	0000000c startup_default_early_hook
+0000e688 l     F .text	00000002 startup_default_late_hook
+00000000 l    df *ABS*	00000000 crtstuff.c
+00000410 l     F .text	00000000 register_tm_clones
+00000434 l     F .text	00000000 frame_dummy
+1fff98f0 l     O .bss	00000000 object.0
+00016014 l     O .text	00000000 __frame_dummy_init_array_entry
+00000000 l    df *ABS*	00000000 FilterOnePole.cpp
+00000000 l    df *ABS*	00000000 NuEVI.ino.cpp
+000005b4 l     F .text	00000060 long map<int, int, int, int, float>(int, int, int, int, float, std::enable_if<std::is_integral<int>::value, void>::type*) [clone .isra.0]
+00000614 l     F .text	00000054 long map<int, unsigned short, unsigned short, int, unsigned short>(int, unsigned short, unsigned short, int, unsigned short, std::enable_if<std::is_integral<int>::value, void>::type*) [clone .isra.0]
+00000668 l     F .text	00000054 long map<int, unsigned short, unsigned short, int, int>(int, unsigned short, unsigned short, int, int, std::enable_if<std::is_integral<int>::value, void>::type*) [clone .isra.0]
+000006bc l     F .text	000000bc stopRotatorNotes(unsigned char, Rotator const*)
+00000778 l     F .text	000000ec updateRotator(unsigned char, Rotator const*)
+00000924 l     F .text	000000a8 leverCC_() [clone .part.0]
+000009cc l     F .text	000000b4 biteCC_() [clone .part.0]
+00000a80 l     F .text	000001e0 sendHarmonizerData(unsigned char, int const (*) [3], bool)
+00000c60 l     F .text	00000084 gliss() [clone .part.0]
+00000ce4 l     F .text	000002ac stopHarmonizerNotes(unsigned char)
+00000f90 l     F .text	000002ac startHarmonizerNotes(unsigned char)
+00004f18 l       .text	00000000 L_19097_delayMicroseconds
+00005110 l     F .text	00000058 _GLOBAL__sub_I_breathThrVal
+1fff992c l     O .bss	00000004 pixelUpdateTime
+00012c28 l     O .text	00000090 majAdd9Hmz
+00012cb8 l     O .text	00000018 vibMaxList
+00012cd0 l     O .text	00000090 majGosDomHmz
+00012d60 l     O .text	00000090 majGosRootHmz
+00012df0 l     O .text	000000e0 harmonicResult
+00012ed0 l     O .text	000000a0 saxFingerMatch
+00012f70 l     O .text	00000022 vibMaxBiteList
+00012f94 l     O .text	000001e0 waveformsTable
+00013174 l     O .text	00000024 timeDividerList
+00013198 l     O .text	00000070 brHarmonicResult
+00013208 l     O .text	00000022 curveM1
+0001322c l     O .text	00000022 curveM2
+00013250 l     O .text	00000022 curveM3
+00013274 l     O .text	00000022 curveM4
+00013298 l     O .text	00000022 curveP1
+000132bc l     O .text	00000022 curveP2
+000132e0 l     O .text	00000022 curveP3
+00013304 l     O .text	00000022 curveP4
+00013328 l     O .text	00000022 curveS1
+0001334c l     O .text	00000022 curveS2
+00013370 l     O .text	00000022 curveZ1
+00013394 l     O .text	00000022 curveZ2
+000133b8 l     O .text	00000240 blockFWC
+000135f8 l     O .text	00000028 vibDepth
+00013620 l     O .text	00000090 minAeoHmz
+000136b0 l     O .text	00000090 minDorHmz
+00013740 l     O .text	00000090 minHipHmz
+00000000 l    df *ABS*	00000000 adjustmenu.cpp
+00005168 l     F .text	0000001c leverSave(AdjustMenuEntry const&)
+00005184 l     F .text	0000000c ctouchThrSave(AdjustMenuEntry const&)
+00005190 l     F .text	0000001c extracSave(AdjustMenuEntry const&)
+000051ac l     F .text	0000001c pbSave(AdjustMenuEntry const&)
+000051c8 l     F .text	0000001c portamentoSave(AdjustMenuEntry const&)
+000051e4 l     F .text	0000001c breathSave(AdjustMenuEntry const&)
+00005200 l     F .text	00000040 drawAdjCursor(unsigned char)
+0000551c l     F .text	00000090 drawAdjustFrame(int)
+000055ac l     F .text	00000068 updateSensorPixel(int, int)
+00005988 l     F .text	00000240 drawAdjustMenu(AdjustMenuEntry const*)
+00005bc8 l     F .text	00000264 handleInput(AdjustMenuEntry const*, unsigned long, unsigned char, unsigned short*, int, int)
+1fff9c20 l     O .bss	00000002 adjustOption
+1fff9c22 l     O .bss	00000002 adjustCurrent
+1fff9c24 l     O .bss	00000001 refreshScreen
+1fff9c26 l     O .bss	00000002 pos1
+1fff9c28 l     O .bss	00000002 pos2
+1fff9c2a l     O .bss	00000001 forcePix
+1fff8e80 l     O .data	00000002 sensorPixelPos1
+1fff8e82 l     O .data	00000002 sensorPixelPos2
+00013888 l     O .text	00000018 breathAdjustMenu
+000138d0 l     O .text	00000018 portamentoAdjustMenu
+000138b8 l     O .text	00000018 pitchBendAdjustMenu
+000138e8 l     O .text	00000018 extraSensorAdjustMenu
+000138a0 l     O .text	00000018 ctouchAdjustMenu
+00013870 l     O .text	00000018 leverAdjustMenu
+00000000 l    df *ABS*	00000000 led.cpp
+00000000 l    df *ABS*	00000000 menu.cpp
+00006158 l     F .text	0000002c rotatorCSave(MenuEntrySub const&)
+00006184 l     F .text	00000010 parallelSave(MenuEntrySub const&)
+00006194 l     F .text	00000010 parallelBSave(MenuEntrySub const&)
+000061a4 l     F .text	00000010 parallelCSave(MenuEntrySub const&)
+000061b4 l     F .text	00000010 rotatorPrioSave(MenuEntrySub const&)
+000061c4 l     F .text	00000010 fwcDrop2Save(MenuEntrySub const&)
+000061d4 l     F .text	00000010 fwcLockHSave(MenuEntrySub const&)
+000061e4 l     F .text	00000010 fwcTypeSave(MenuEntrySub const&)
+000061f4 l     F .text	00000010 hmzLimitSave(MenuEntrySub const&)
+00006204 l     F .text	00000010 otfKeySave(MenuEntrySub const&)
+00006214 l     F .text	00000010 hmzKeySave(MenuEntrySub const&)
+00006224 l     F .text	00000010 polySelectSave(MenuEntrySub const&)
+00006234 l     F .text	00000010 cvScaleMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006244 l     F .text	00000010 cvTuneMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006254 l     F .text	00000010 dacModeMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006264 l     F .text	00000010 midiSaveFunc(MenuEntrySub const&)
+00006274 l     F .text	00000010 octaveMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006284 l     F .text	00000010 transposeSave(MenuEntrySub const&)
+00006294 l     F .text	00000010 breathIntervalMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000062a4 l     F .text	00000010 velBiasMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000062b4 l     F .text	00000010 velSmpDlMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000062c4 l     F .text	00000010 curveWriteSettings(MenuEntrySub const&)
+000062d4 l     F .text	00000010 velocityMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000062e4 l     F .text	00000010 breathCC2RiseMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000062f4 l     F .text	00000010 glissandoMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006304 l     F .text	00000010 pitchBendMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006314 l     F .text	00000010 rollerMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006324 l     F .text	00000010 fingeringMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006334 l     F .text	00000010 lpinky3Menu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006344 l     F .text	00000010 lvlCtrlCCMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006354 l     F .text	00000010 pinkyMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006364 l     F .text	00000010 deglitchMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006374 l     F .text	00000010 harmonicsMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006384 l     F .text	00000010 extraCC2Menu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006394 l     F .text	00000010 extraMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063a4 l     F .text	00000010 portLimitMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063b4 l     F .text	00000010 portMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063c4 l     F .text	00000010 leverCCMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063d4 l     F .text	00000010 leverCtlMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063e4 l     F .text	00000010 biteCCMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+000063f4 l     F .text	00000010 biteCtlMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006404 l     F .text	00000010 vib2BrAmtMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006414 l     F .text	00000010 vib2BrDirMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006424 l     F .text	00000010 vibSquelchBiteMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006434 l     F .text	00000010 vibSenseBiteMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006444 l     F .text	00000010 vibSquelchMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006454 l     F .text	00000010 vibSenseMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006464 l     F .text	00000010 vibDirMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006474 l     F .text	00000010 vibRetnMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006484 l     F .text	00000010 vibStore(MenuEntrySub const&)
+00006494 l     F .text	00000048 fwcTypeOptionGet(MenuEntrySub const&, char*, char const**)
+000064dc l     F .text	000000b0 hmzKeyOptionGet(MenuEntrySub const&, char*, char const**)
+0000658c l     F .text	0000002c fastBootMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000065b8 l     F .text	0000002c gateOpenMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000065e4 l     F .text	0000002c legacyBRMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006610 l     F .text	0000002c legacyPBMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+0000663c l     F .text	0000002c breathATMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006668 l     F .text	000000a4 polySelectOptionGet(MenuEntrySub const&, char*, char const**)
+0000670c l     F .text	0000015c transposeOptionGet(MenuEntrySub const&, char*, char const**)
+00006868 l     F .text	0000000c wlChannelMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006874 l     F .text	0000000c wlPowerMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006880 l     F .text	000000dc mainTitleGetStr(char*)
+000069e0 l     F .text	00000024 rotatorPrioOptionGet(MenuEntrySub const&, char*, char const**)
+00006a04 l     F .text	00000024 fwcDrop2OptionGet(MenuEntrySub const&, char*, char const**)
+00006a28 l     F .text	00000070 midiEnterHandlerFunc()
+00006a98 l     F .text	00000024 vib2BrDirMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006abc l     F .text	00000024 vibDirMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006ae0 l     F .text	00000040 fingeringMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006b20 l     F .text	00000020 harmSelectMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006b40 l     F .text	00000040 harmSelectMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006b80 l     F .text	00000040 extraMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006bc0 l     F .text	00000040 portMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006c00 l     F .text	00000034 leverCtlMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006c34 l     F .text	00000040 biteCtlMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006c74 l     F .text	00000024 breathATMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006c98 l     F .text	00000024 breathCC2Menu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006cbc l     F .text	00000024 breathCCMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006ce0 l     F .text	00000048 breathCCMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006d28 l     F .text	00000020 batteryTypeMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006d48 l     F .text	00000038 batteryTypeMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006d80 l     F .text	00000020 cvEcVibMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006da0 l     F .text	00000024 fastBootMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006dc4 l     F .text	00000034 dacModeMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006df8 l     F .text	00000024 gateOpenMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006e1c l     F .text	00000024 legacyBRMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006e40 l     F .text	00000024 legacyPBMenu::{lambda(MenuEntrySub const&)#2}::_FUN(MenuEntrySub const)
+00006e64 l     F .text	00000060 numToString(short, char*, bool) [clone .isra.0]
+00006ec4 l     F .text	00000090 pinkyMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006f54 l     F .text	00000034 lpinky3Menu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006f88 l     F .text	00000018 wlPowerMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006fa0 l     F .text	00000014 cvScaleMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006fb4 l     F .text	00000014 cvTuneMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006fc8 l     F .text	00000014 octaveMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00006fdc l     F .text	00000014 parallelCOptionGet(MenuEntrySub const&, char*, char const**)
+00006ff0 l     F .text	00000014 parallelBOptionGet(MenuEntrySub const&, char*, char const**)
+00007004 l     F .text	00000014 parallelOptionGet(MenuEntrySub const&, char*, char const**)
+00007018 l     F .text	0000000e rotatorOptionGet(MenuEntrySub const&, char*, char const**)
+00007028 l     F .text	00000024 otfKeyOptionGet(MenuEntrySub const&, char*, char const**)
+0000704c l     F .text	00000024 fwcLockHOptionGet(MenuEntrySub const&, char*, char const**)
+00007070 l     F .text	0000002c rotatorSave(MenuEntrySub const&)
+0000709c l     F .text	0000002c rotatorBSave(MenuEntrySub const&)
+000070c8 l     F .text	00000124 idlePageUpdate(KeyState&, unsigned long)
+000071ec l     F .text	00000058 wlChannelMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007244 l     F .text	00000058 portLimitMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+0000729c l     F .text	00000058 vib2BrAmtMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000072f4 l     F .text	00000058 breathIntervalMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+0000734c l     F .text	00000058 biteCCMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000073a4 l     F .text	00000058 vibRetnMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000073fc l     F .text	00000058 vibSenseMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007454 l     F .text	00000058 leverCCMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000074ac l     F .text	00000058 vibSquelchBiteMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007504 l     F .text	00000058 vibSquelchMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+0000755c l     F .text	00000058 vibSenseBiteMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000075b4 l     F .text	0000005c rollerMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007610 l     F .text	00000064 breathCC2RiseMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007674 l     F .text	00000054 hmzLimitOptionGet(MenuEntrySub const&, char*, char const**)
+000076c8 l     F .text	00000068 vibGetStr(MenuEntrySub const&, char*, char const**)
+00007730 l     F .text	00000068 cvEcVibMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007798 l     F .text	00000068 lvlCtrlCCMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007800 l     F .text	00000068 harmonicsMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007868 l     F .text	00000068 velocityMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000078d0 l     F .text	00000068 breathCC2Menu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007938 l     F .text	00000068 extraCC2Menu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+000079a0 l     F .text	00000068 velBiasMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007a08 l     F .text	00000074 velSmpDlMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007a7c l     F .text	00000074 deglitchMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007af0 l     F .text	00000078 glissandoMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007b68 l     F .text	00000084 pitchBendMenu::{lambda(MenuEntrySub const&, char*, char const**)#1}::_FUN(MenuEntrySub const, MenuEntrySub const&, char const*)
+00007c64 l     F .text	00000040 _GLOBAL__sub_I_cursorNow
+00007e04 l     F .text	000000d4 plotMenuEntries(MenuPage const*, bool)
+00007f24 l     F .text	000000e8 curveCustomDraw(MenuEntrySub const&, char*, char const**)
+0000800c l     F .text	00000118 drawPatchView()
+00008124 l     F .text	000000e0 midiCustomDrawFunc(MenuEntrySub const&, char*, char const**)
+00008204 l     F .text	000000b4 drawSubMenu(MenuPage const*) [clone .isra.0]
+000082b8 l     F .text	00000210 patchPageUpdate(KeyState&, unsigned long)
+000084c8 l     F .text	000004ec updatePage(MenuPage const*, KeyState&, unsigned long)
+00008b70 l     F .text	000001fc aboutMenuPage::{lambda(KeyState&, unsigned long)#1}::_FUN(KeyState, unsigned long)
+1fff9c2c l     O .bss	00000004 patchViewTime
+1fff9c30 l     O .bss	00000002 wireless_power
+1fff9c32 l     O .bss	00000001 updateSensorPixelsFlag
+1fff9c33 l     O .bss	00000001 FPD
+1fff9c34 l     O .bss	00000009 cursors
+1fff9c40 l     O .bss	00000009 offsets
+1fff9c4c l     O .bss	00000004 menuTime
+1fff9c50 l     O .bss	00000009 activeSub
+1fff9c59 l     O .bss	00000001 menuState
+1fff9c5a l     O .bss	00000001 readInput(unsigned long)::deumButtonState
+1fff9c5b l     O .bss	00000001 readInput(unsigned long)::lastDeumButtons
+1fff9c5c l     O .bss	00000004 readInput(unsigned long)::buttonRepeatTime
+1fff9c60 l     O .bss	00000004 readInput(unsigned long)::lastDebounceTime
+1fff9c64 l     O .bss	00000004 readInput(unsigned long)::buttonPressedTime
+1fff9c68 l     O .bss	00000004 aboutMenuPage::{lambda(KeyState&, unsigned long)#1}::operator()(KeyState, unsigned long) const::timer
+1fff8e9c l     O .data	00000001 stateFirstRun
+1fff8e9e l     O .data	00000002 wireless_channel
+00014438 l     O .text	00000024 breathCCMenu
+000146fc l     O .text	00000024 breathCC2Menu
+00014f90 l     O .text	00000024 breathCC2RiseMenu
+00014414 l     O .text	00000024 breathATMenu
+00014684 l     O .text	00000024 velocityMenu
+00015050 l     O .text	00000024 curveMenu
+00014660 l     O .text	00000024 velSmpDlMenu
+000143a8 l     O .text	00000024 velBiasMenu
+00014fb4 l     O .text	00000024 breathIntervalMenu
+00014270 l     O .text	00000024 biteCtlMenu
+0001415c l     O .text	00000024 biteCCMenu
+000145ac l     O .text	00000024 leverCtlMenu
+00014330 l     O .text	00000024 leverCCMenu
+00015020 l     O .text	00000024 portMenu
+000147e0 l     O .text	00000024 portLimitMenu
+00014e4c l     O .text	0000000c vibratoSubMenu
+00015074 l     O .text	00000024 extraMenu
+00014480 l     O .text	00000024 extraCC2Menu
+00014768 l     O .text	00000024 harmonicsMenu
+000149e0 l     O .text	00000024 harmSelectMenu
+0001445c l     O .text	00000024 deglitchMenu
+00015098 l     O .text	00000024 pinkyMenu
+0001478c l     O .text	00000024 lvlCtrlCCMenu
+00014354 l     O .text	00000024 lpinky3Menu
+00014720 l     O .text	00000024 fingeringMenu
+00014228 l     O .text	00000024 rollerMenu
+000147bc l     O .text	00000024 pitchBendMenu
+00014744 l     O .text	00000024 glissandoMenu
+00014588 l     O .text	00000024 legacyPBMenu
+00014564 l     O .text	00000024 legacyBRMenu
+00014510 l     O .text	00000024 gateOpenMenu
+000142e8 l     O .text	00000024 dacModeMenu
+00014e58 l     O .text	00000024 batteryTypeMenu
+000144a4 l     O .text	00000024 fastBootMenu
+0001418c l     O .text	00000024 cvTuneMenu
+000142c4 l     O .text	00000024 cvScaleMenu
+000142a0 l     O .text	00000024 cvEcVibMenu
+000143f0 l     O .text	00000024 wlPowerMenu
+00014990 l     O .text	00000024 wlChannelMenu
+00014924 l     O .text	00000024 transposeMenu
+000141e0 l     O .text	00000024 octaveMenu
+00014ffc l     O .text	00000024 midiMenu
+0001439c l     O .text	0000000c rotatorMenu
+00014180 l     O .text	0000000c breathMenu
+00014294 l     O .text	0000000c controlMenu
+00014150 l     O .text	0000000c adjustMenu
+000141b0 l     O .text	0000000c extrasMenu
+00015044 l     O .text	0000000c aboutMenu
+00014ecc l     O .text	00000024 rotatorParaMenu
+000145d0 l     O .text	00000024 rotator1Menu
+000145f4 l     O .text	00000024 rotator2Menu
+00014618 l     O .text	00000024 rotator3Menu
+0001463c l     O .text	00000024 rotator4Menu
+00014f24 l     O .text	00000024 rotatorParaBMenu
+00014804 l     O .text	00000024 rotatorB1Menu
+00014828 l     O .text	00000024 rotatorB2Menu
+0001484c l     O .text	00000024 rotatorB3Menu
+00014870 l     O .text	00000024 rotatorB4Menu
+00014f48 l     O .text	00000024 rotatorParaCMenu
+00014894 l     O .text	00000024 rotatorC1Menu
+000148b8 l     O .text	00000024 rotatorC2Menu
+000148dc l     O .text	00000024 rotatorC3Menu
+00014900 l     O .text	00000024 rotatorC4Menu
+00014e04 l     O .text	00000024 polySelectMenu
+000141bc l     O .text	00000024 hmzKeyMenu
+00014204 l     O .text	00000024 otfKeyMenu
+00014534 l     O .text	00000024 hmzLimitMenu
+0001430c l     O .text	00000024 fwcTypeMenu
+000144ec l     O .text	00000024 fwcLockHMenu
+000144c8 l     O .text	00000024 fwcDrop2Menu
+00014ef0 l     O .text	00000024 rotatorPrioMenu
+00014378 l     O .text	0000000c rotSubAMenu
+00014384 l     O .text	0000000c rotSubBMenu
+00014390 l     O .text	0000000c rotSubCMenu
+000146a8 l     O .text	00000024 vibDepthMenu
+000143cc l     O .text	00000024 vibRetnMenu
+0001424c l     O .text	00000024 vibDirMenu
+000146cc l     O .text	00000024 vibSenseMenu
+00014e28 l     O .text	00000024 vibSquelchMenu
+00014f6c l     O .text	00000024 vibSenseBiteMenu
+00014fd8 l     O .text	00000024 vibSquelchBiteMenu
+0001496c l     O .text	00000024 vib2BrDirMenu
+00014948 l     O .text	00000024 vib2BrAmtMenu
+00014558 l     O .text	0000000c idleMenuPage
+000146f0 l     O .text	0000000c aboutMenuPage
+000147b0 l     O .text	0000000c patchMenuPage
+000149b4 l     O .text	0000000c adjustMenuPage
+000149c0 l     O .text	00000010 breathMenuPage
+000149d0 l     O .text	00000010 extrasMenuPage
+00014a04 l     O .text	00000400 nurad_logo_bmp
+00014e7c l     O .text	00000010 controlMenuPage
+00014e8c l     O .text	00000010 rotSubAMenuPage
+00014e9c l     O .text	00000010 rotSubBMenuPage
+00014eac l     O .text	00000010 rotSubCMenuPage
+00014ebc l     O .text	00000010 rotatorMenuPage
+00014f14 l     O .text	00000010 vibratoMenuPage
+00000000 l    df *ABS*	00000000 midi.cpp
+00000000 l    df *ABS*	00000000 settings.cpp
+0000aa80 l     F .text	00000004 _GLOBAL__sub_I__Z10readEEPROMb
+0000aacc l     F .text	0000011c receiveSysexSettings(unsigned char const*, unsigned short) [clone .part.0]
+00000000 l    df *ABS*	00000000 WireKinetis.cpp
+0000b1f6 l       .text	00000000 L_1999_delayMicroseconds
+0000b204 l       .text	00000000 L_2018_delayMicroseconds
+0000b24a l       .text	00000000 L_2082_delayMicroseconds
+0000b524 l       .text	00000000 L_3417_delayMicroseconds
+1fff9cec l     O .bss	00000001 TwoWire::isr()::receiving
+00000000 l    df *ABS*	00000000 Adafruit_MPR121.cpp
+00000000 l    df *ABS*	00000000 Adafruit_BusIO_Register.cpp
+00000000 l    df *ABS*	00000000 Adafruit_I2CDevice.cpp
+00000000 l    df *ABS*	00000000 Adafruit_SPIDevice.cpp
+0000baf8 l     F .text	0000021c Adafruit_SPIDevice::transfer(unsigned char*, unsigned int) [clone .part.0]
+0000bb46 l       .text	00000000 L_113_delayMicroseconds
+0000bba6 l       .text	00000000 L_193_delayMicroseconds
+0000bcee l       .text	00000000 L_513_delayMicroseconds
+00000000 l    df *ABS*	00000000 SPI.cpp
+0000bf48 l     F .text	00000204 SPIClass::transfer(void const*, void*, unsigned int) [clone .part.0]
+00000000 l    df *ABS*	00000000 Adafruit_SSD1306.cpp
+0000c2c8 l     F .text	00000086 Adafruit_SSD1306::drawFastHLineInternal(short, short, short, unsigned short) [clone .part.0]
+0000c350 l     F .text	00000150 Adafruit_SSD1306::drawFastVLineInternal(short, short, short, unsigned short) [clone .part.0]
+000152a0 l     O .text	000002c0 splash1_data
+00015560 l     O .text	000001e0 splash2_data
+00015798 l     O .text	00000008 Adafruit_SSD1306::drawFastVLineInternal(short, short, short, unsigned short)::premask
+000157a0 l     O .text	00000008 Adafruit_SSD1306::drawFastVLineInternal(short, short, short, unsigned short)::postmask
+000157a8 l     O .text	00000004 Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init1
+000157ac l     O .text	00000004 Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init2
+000157b0 l     O .text	00000004 Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init3
+000157b4 l     O .text	00000006 Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init5
+000157bc l     O .text	00000005 Adafruit_SSD1306::display()::dlist1
+00000000 l    df *ABS*	00000000 Adafruit_GFX.cpp
+000157c4 l     O .text	00000500 font
+00000000 l    df *ABS*	00000000 EventResponder.cpp
+00000000 l    df *ABS*	00000000 HardwareSerial2.cpp
+00000000 l    df *ABS*	00000000 HardwareSerial3.cpp
+00000000 l    df *ABS*	00000000 IntervalTimer.cpp
+0000dd54 l     F .text	00000002 dummy_funct()
+0000dd68 l     F .text	00000020 __tcf_0
+0000df6c l     F .text	00000038 _GLOBAL__sub_I__ZN13IntervalTimer11beginCyclesEN6teensy16inplace_functionIFvvELj16ELj8EEEm
+1fff9d08 l     O .bss	00000060 funct_table
+00000000 l    df *ABS*	00000000 Print.cpp
+0000dfd4 l     F .text	00000082 Print::printNumber(unsigned long, unsigned char, unsigned char) [clone .part.0]
+00000000 l    df *ABS*	00000000 analog.c
+0000e084 l     F .text	000000b8 wait_for_cal
+1fff9d68 l     O .bss	00000001 analogReadBusyADC0
+1fff9d69 l     O .bss	00000001 analogReadBusyADC1
+1fff9d6a l     O .bss	00000001 analog_reference_internal
+1fff9d6b l     O .bss	00000001 analog_right_shift
+1fff9d6c l     O .bss	00000001 calibrating
+1fff91a4 l     O .data	00000001 analog_config_bits
+1fff91a5 l     O .data	00000001 analog_num_average
+00015e00 l     O .text	00000029 pin2sc1a
+00000000 l    df *ABS*	00000000 eeprom.c
+00000000 l    df *ABS*	00000000 main.cpp
+00000000 l    df *ABS*	00000000 memcpy-armv7m.S.o
+00000000 l    df *ABS*	00000000 new.cpp
+00000000 l    df *ABS*	00000000 nonstd.c
+00000000 l    df *ABS*	00000000 pins_teensy.c
+0000e764 l     F .text	00000002 dummy_isr
+1fff8c30 l     F .data	00000034 port_E_isr
+1fff8c64 l     F .data	00000034 port_D_isr
+1fff8c98 l     F .data	00000034 port_C_isr
+1fff8ccc l     F .data	00000034 port_B_isr
+1fff8d00 l     F .data	00000034 port_A_isr
+0000e768 l     F .text	00000044 digitalWrite.part.0
+0000e930 l     F .text	00000002 startup_default_middle_hook
+1fff91ac l     O .data	00000001 analog_write_res
+00015e3c l     O .text	00000014 CSWTCH.39
+00000000 l    df *ABS*	00000000 serial2.c
+1fff9d74 l     O .bss	00000004 rts_pin
+1fff9d78 l     O .bss	00000040 rx_buffer
+1fff9db8 l     O .bss	00000001 rx_buffer_head
+1fff9dbc l     O .bss	00000004 rx_buffer_storage_
+1fff9dc0 l     O .bss	00000001 rx_buffer_tail
+1fff9dc4 l     O .bss	00000004 transmit_pin
+1fff9dc8 l     O .bss	00000001 transmitting
+1fff9dcc l     O .bss	00000028 tx_buffer
+1fff9df4 l     O .bss	00000001 tx_buffer_head
+1fff9df8 l     O .bss	00000004 tx_buffer_storage_
+1fff9dfc l     O .bss	00000001 tx_buffer_tail
+1fff9290 l     O .data	00000004 rts_high_watermark_
+1fff9294 l     O .data	00000004 rts_low_watermark_
+1fff9298 l     O .data	00000004 rx_buffer_total_size_
+1fff929c l     O .data	00000001 rx_pin_num
+1fff92a0 l     O .data	00000004 tx_buffer_total_size_
+1fff92a4 l     O .data	00000001 tx_pin_num
+00000000 l    df *ABS*	00000000 serial3.c
+0000f814 l     F .text	000000ec serial3_putchar.part.0
+1fff9e00 l     O .bss	00000004 rts_pin
+1fff9e04 l     O .bss	00000040 rx_buffer
+1fff9e44 l     O .bss	00000001 rx_buffer_head
+1fff9e48 l     O .bss	00000004 rx_buffer_storage_
+1fff9e4c l     O .bss	00000001 rx_buffer_tail
+1fff9e50 l     O .bss	00000004 transmit_pin
+1fff9e54 l     O .bss	00000001 transmitting
+1fff9e58 l     O .bss	00000028 tx_buffer
+1fff9e80 l     O .bss	00000001 tx_buffer_head
+1fff9e84 l     O .bss	00000004 tx_buffer_storage_
+1fff9e88 l     O .bss	00000001 tx_buffer_tail
+1fff92a8 l     O .data	00000004 rts_high_watermark_
+1fff92ac l     O .data	00000004 rts_low_watermark_
+1fff92b0 l     O .data	00000004 rx_buffer_total_size_
+1fff92b4 l     O .data	00000004 tx_buffer_total_size_
+1fff92b8 l     O .data	00000001 tx_pin_num
+00000000 l    df *ABS*	00000000 serialEvent2.cpp
+00000000 l    df *ABS*	00000000 serialEvent3.cpp
+00000000 l    df *ABS*	00000000 touch.c
+0000ff42 l       .text	00000000 L_62_delayMicroseconds
+0000ff4e l       .text	00000000 L_87_delayMicroseconds
+00015f60 l     O .text	00000022 pin2tsi
+00000000 l    df *ABS*	00000000 usb_dev.c
+1fff9e8c l     O .bss	00000040 ep0_rx0_buf
+1fff9ecc l     O .bss	00000040 ep0_rx1_buf
+1fff9f0c l     O .bss	00000001 ep0_tx_bdt_bank
+1fff9f0d l     O .bss	00000001 ep0_tx_data_toggle
+1fff9f0e l     O .bss	00000002 ep0_tx_len
+1fff9f10 l     O .bss	00000004 ep0_tx_ptr
+1fff9f14 l     O .bss	00000008 reply_buffer
+1fff9f1c l     O .bss	00000014 rx_first
+1fff9f30 l     O .bss	00000014 rx_last
+1fff9f44 l     O .bss	00000008 setup
+1fff9f4c l     O .bss	00000014 tx_first
+1fff9f60 l     O .bss	00000014 tx_last
+1fff9f74 l     O .bss	00000005 tx_state
+1fff8000 l     O .usbdescriptortable	000000c0 table
+00000000 l    df *ABS*	00000000 usb_mem.c
+1fff92bc l     O .data	00000004 usb_buffer_available
+00000000 l    df *ABS*	00000000 usb_midi.c
+0001098c l     F .text	00000040 sysex_byte
+1fff9f88 l     O .bss	00000004 rx_packet
+1fff9f8c l     O .bss	00000001 transmit_previous_timeout
+1fff9f8d l     O .bss	00000001 tx_noautoflush
+1fff9f90 l     O .bss	00000004 tx_packet
+00000000 l    df *ABS*	00000000 usb_serial.c
+1fffa110 l     O .bss	00000004 rx_packet
+1fffa114 l     O .bss	00000001 tx_noautoflush
+1fffa118 l     O .bss	00000004 tx_packet
+00000000 l    df *ABS*	00000000 yield.cpp
+1fffa12d l     O .bss	00000001 yield::running
+00000000 l    df *ABS*	00000000 HardwareSerial.cpp
+00000000 l    df *ABS*	00000000 serialEvent.cpp
+00000000 l    df *ABS*	00000000 usb_desc.c
+1fff92c4 l     O .data	00000095 config_descriptor
+1fff935c l     O .data	00000012 device_descriptor
+00000000 l    df *ABS*	00000000 libm_a-wf_exp.o
+00000000 l    df *ABS*	00000000 libm_a-sf_finite.o
+00000000 l    df *ABS*	00000000 libm_a-ef_exp.o
+00000000 l    df *ABS*	00000000 libm_a-math_errf.o
+00011468 l     F .text	00000012 with_errnof
+0001147c l     F .text	00000026 xflowf
+00000000 l    df *ABS*	00000000 atexit_arm.o
+00000000 l    df *ABS*	00000000 _arm_addsubsf3.o
+00000000 l    df *ABS*	00000000 _arm_muldivsf3.o
+00000000 l    df *ABS*	00000000 _arm_cmpsf2.o
+00000000 l    df *ABS*	00000000 _arm_fixsfsi.o
+00000000 l    df *ABS*	00000000 _arm_fixunssfsi.o
+00000000 l    df *ABS*	00000000 libc_a-malloc.o
+00000000 l    df *ABS*	00000000 libc_a-mallocr.o
+00000000 l    df *ABS*	00000000 libc_a-mlock.o
+00000000 l    df *ABS*	00000000 libc_a-realloc.o
+00000000 l    df *ABS*	00000000 libc_a-reallocr.o
+00000000 l    df *ABS*	00000000 libc_a-cxa_atexit.o
+00000000 l    df *ABS*	00000000 libc_a-memmove.o
+00000000 l    df *ABS*	00000000 libc_a-memset.o
+00000000 l    df *ABS*	00000000 libc_a-strncmp.o
+00000000 l    df *ABS*	00000000 libc_a-strncpy.o
+00000000 l    df *ABS*	00000000 libc_a-sbrkr.o
+00000000 l    df *ABS*	00000000 libc_a-errno.o
+00000000 l    df *ABS*	00000000 libc_a-init.o
+00000000 l    df *ABS*	00000000 libc_a-lock.o
+00000000 l    df *ABS*	00000000 libc_a-strlen.o
+00000000 l    df *ABS*	00000000 libc_a-__atexit.o
+00000000 l    df *ABS*	00000000 libc_a-__call_atexit.o
+00012924 l     F .text	00000014 register_fini
+00000000 l    df *ABS*	00000000 libc_a-atexit.o
+00000000 l    df *ABS*	00000000 libc_a-freer.o
+00000000 l    df *ABS*	00000000 libc_a-fini.o
+00000000 l    df *ABS*	00000000 crti.o
+00000000 l    df *ABS*	00000000 crtn.o
+00000000 l    df *ABS*	00000000 name.c
+00000000 l    df *ABS*	00000000 libc_a-impure.o
+0000601c g     F .text	000000e4 updateSensorLEDs()
+0000e674  w    F .text	00000006 adc0_isr
+0000ad84 g     F .text	00000090 configModeSetup()
+1fff9bfc g     O .bss	00000002 vibDirection
+1fff9c04 g     O .bss	00000004 vibThr
+00005fdc g     F .text	00000018 statusLedFlip()
+00010f9c g     F .text	0000002c usb_serial_available
+1fff9b48 g     O .bss	00000004 oldbreathhires
+000089b4 g     F .text	000001bc menu()
+1fff8d6c g     O .data	00000030 calOffsetRH
+1fff9934 g     O .bss	00000004 battAvg
+0000bd94 g     F .text	00000048 Adafruit_SPIDevice::endTransactionWithDeassertingCS()
+000005a8  w    F .text	0000000c IntervalTimer::~IntervalTimer()
+00011010  w    F .text	000000f0 yield
+0000904c g     F .text	0000000e midiDiscardInput()
+1fff8f9c g     O .data	0000002c rotatorMenuEntries
+0000b75c g     F .text	0000001a Adafruit_BusIO_Register::Adafruit_BusIO_Register(Adafruit_I2CDevice*, unsigned short, unsigned char, unsigned char, unsigned char)
+1fff9ad4 g     O .bss	00000002 glissSetting
+0000cfb8 g     F .text	0000001e Adafruit_GFX::fillScreen(unsigned short)
+0000dc1c  w    F .text	0000000c HardwareSerial3::write(unsigned char)
+1fff9374 g     O .data	00000018 usb_string_manufacturer_name_default
+0000cf8c g     F .text	00000012 Adafruit_GFX::writeFastHLine(short, short, short, unsigned short)
+1fff9938 g     O .bss	00000001 battCheckPos
+1fff9fb4 g     O .bss	00000004 usb_midi_handleProgramChange
+1fff90c0 g     O .data	000000bc Wire1
+1fff9b86 g     O .bss	00000002 portamMaxVal
+00015df0  w    O .text	00000010 teensy::inplace_function_detail::empty_vtable<void>
+0000e630  w    F .text	00000044 hard_fault_isr
+0000dbe4 g     F .text	0000002c HardwareSerial3::begin(unsigned long)
+0000e674  w    F .text	00000006 dma_ch6_isr
+1fffa2b0 g     O .bss	00000001 __lock___atexit_recursive_mutex
+0000fbd8 g     F .text	00000014 serial3_putchar
+0000e068 g     F .text	0000001c Print::println()
+0000b048 g     F .text	00000128 TwoWire::isr()
+1fff9a84 g     O .bss	00000002 dacMode
+0000f4f0 g     F .text	00000028 serial2_available
+1fff9b58 g     O .bss	00000004 oldport
+1fff9928 g     O .bss	00000001 RHs
+1fff9b72 g     O .bss	00000001 pinkyKey
+0000e674  w    F .text	00000006 uart0_lon_isr
+0000fff0 g     F .text	00000080 usb_rx_memory
+0000db14  w    F .text	00000008 HardwareSerial2::setTX(unsigned char, bool)
+0000b558 g     F .text	00000032 Adafruit_MPR121::filteredData(unsigned char)
+0000e674  w    F .text	00000006 dma_ch8_isr
+0000b620 g     F .text	0000013a Adafruit_MPR121::begin(unsigned char, TwoWire*, unsigned char, unsigned char)
+00012080 g     F .text	0000000c __malloc_unlock
+1fff9f98 g     O .bss	00000004 usb_midi_handleAfterTouch
+1fff91b0 g     O .data	00000038 isr_table_portA
+1fff9c14 g     O .bss	00000004 vibZero
+00015740 g     O .text	00000058 vtable for Adafruit_SSD1306
+1fff990d g     O .bss	00000001 K6
+0000dcd4  w    F .text	00000020 HardwareSerial3::write(int)
+00008ee8 g     F .text	00000070 midiSendNoteOff(unsigned char)
+0000f03c g     F .text	000000d0 serial2_end
+1fff9920 g     O .bss	00000001 R5
+0000e13c g     F .text	000000c8 analog_init
+00010070 g     F .text	00000088 usb_tx
+1fff9a06 g     O .bss	00000002 bcasMode
+00011844 g     F .text	00000136 .hidden __divsf3
+0000e674  w    F .text	00000006 portcd_isr
+1fff9a60 g     O .bss	00000004 ccSendTime3
+1fff9ab4 g     O .bss	00000004 fingeredNoteUntransposed
+0000e38c g     F .text	0000006c eeprom_initialize
+000005a4  w    F .text	00000002 teensy::inplace_function_detail::vtable<void>::vtable<void (*)()>(teensy::inplace_function_detail::wrapper<void (*)()>)::{lambda(void*)#4}::_FUN(void*)
+1fff9b44 g     O .bss	00000004 oldbreathcc2
+0000dd5c  w    F .text	00000002 teensy::inplace_function_detail::vtable<void>::vtable()::{lambda(void*, void*)#2}::_FUN(void*, void*)
+0000ba10 g     F .text	00000070 Adafruit_I2CDevice::_read(unsigned char*, unsigned int, bool)
+1fff9b76 g     O .bss	00000002 pitchbMaxVal
+0000dc60  w    F .text	00000004 HardwareSerial3::clear()
+00007da8 g     F .text	0000005c drawFlash(int, int)
+000022d4 g     F .text	0000005c portOff()
+1fff9a9e g     O .bss	00000002 fastBoot
+1fff9fcc g     O .bss	00000004 usb_midi_handleSysExComplete
+00012488 g     F .text	000000f8 memmove
+1fff9b04 g     O .bss	00000004 lastGlissTime
+0000bddc g     F .text	000000ac Adafruit_SPIDevice::write(unsigned char const*, unsigned int, unsigned char const*, unsigned int)
+1fff8e6c g     O .data	00000001 startNote
+1fff9b62 g     O .bss	00000002 patch
+0000e674  w    F .text	00000006 can1_rx_warn_isr
+00016034 g       .ARM.exidx	00000000 __exidx_end
+00011a68 g     F .text	0000004c .hidden __fixsfsi
+0000e674  w    F .text	00000006 dma_error_isr
+1fffa10c g     O .bss	00000001 usb_midi_msg_type
+1fff9cfc g     O .bss	00000001 EventResponder::runningFromYield
+0000b538 g     F .text	0000000c i2c0_isr
+0000dfa4 g     F .text	0000002e Print::write(unsigned char const*, unsigned int)
+1fff98ec g     O .data	00000004 __atexit_recursive_mutex
+00002284 g     F .text	00000050 portOn()
+00012738 g     F .text	0000000c __errno
+0000dc28  w    F .text	00000018 HardwareSerial3::write(char const*)
+1fff991e g     O .bss	00000001 R3
+0000e674  w    F .text	00000006 portd_isr
+1fff9bd8 g     O .bss	00000002 specialKeyEnable
+0000e674  w    F .text	00000006 enet_error_isr
+1fff9cf8 g     O .bss	00000004 EventResponder::firstInterrupt
+0000aec0 g     F .text	00000060 sda_rising_isr1()
+0000db2c  w    F .text	00000004 HardwareSerial2::end()
+0000db1c  w    F .text	00000006 HardwareSerial2::setRX(unsigned char)
+0000d2a8 g     F .text	000000fc Adafruit_GFX::writeLine(short, short, short, short, unsigned short)
+1fff9a20 g     O .bss	00000002 breathCC2
+00001d48 g     F .text	0000053c extraController()
+0000e674  w    F .text	00000006 tpm1_isr
+00015e50 g     O .text	00000110 digital_pin_to_info_PGM
+1fff9aba g     O .bss	00000002 fwcDrop2
+1fff9bdc g     O .bss	00000004 targetPitch
+1fff9a88 g     O .bss	00000002 dipSwBits
+1fffa2ac g     O .bss	00000004 errno
+1fff9be8 g     O .bss	00000004 touchSensorRollers
+1fff9a08 g     O .bss	00000002 biteCC
+1fff9b82 g     O .bss	00000001 portIsOn
+1fff9bec g     O .bss	00000002 transpose
+00016034 g       .ARM.exidx	00000000 _etext
+1fff9914 g     O .bss	00000001 LHp2
+1fff98f0 g       .bss	00000000 _sbss
+1fff8e74 g     O .data	00000002 vib2BreathAmount
+000091d8 g     F .text	0000004c sendWLChannel(unsigned char)
+1fff9910 g     O .bss	00000001 LH2
+0000c764 g     F .text	00000110 Adafruit_SSD1306::ssd1306_commandList(unsigned char const*, unsigned char)
+0000d0a4 g     F .text	000000a4 Adafruit_GFX::drawLine(short, short, short, short, unsigned short)
+0000be88 g     F .text	000000be Adafruit_SPIDevice::write_then_read(unsigned char const*, unsigned int, unsigned char*, unsigned int, unsigned char)
+000114cc g     F .text	00000160 .hidden __aeabi_fadd
+1fff9fe0 g     O .bss	00000004 usb_midi_handleVelocityChange
+000114c8 g     F .text	00000164 .hidden __subsf3
+1fff9912 g     O .bss	00000001 LHb
+0000ed38 g     F .text	0000001c digitalRead
+1fff9b2c g     O .bss	00000004 lvlTime
+0000e674  w    F .text	00000006 porte_isr
+0000395c g     F .text	000017b4 loop
+0000e674  w    F .text	00000006 portb_isr
+1fff9b4c g     O .bss	00000004 oldextrac
+1fff9ae8 g     O .bss	00000004 harmonics
+1fff9b64 g     O .bss	00000001 patchKey
+00010b38 g     F .text	00000038 usb_midi_flush_output
+0000e674  w    F .text	00000006 spi1_isr
+0000e674  w    F .text	00000006 uart3_status_isr
+1fff9b40 g     O .bss	00000004 oldbreath
+0000e674  w    F .text	00000006 mcm_isr
+1fff9c6c g     O .bss	00000004 cursorBlinkTime
+1fff9abc g     O .bss	00000002 fwcLockH
+00010b70 g     F .text	0000042c usb_midi_read
+0000db64  w    F .text	00000020 HardwareSerial2::write(int)
+1fff9b98 g     O .bss	00000004 reverb
+0000dcd0  w    F .text	00000004 HardwareSerial3::availableForWrite()
+1fff9fd4 g     O .bss	00000004 usb_midi_handleSystemReset
+0000d3a4 g     F .text	00000030 Adafruit_GFX::Adafruit_GFX(short, short)
+0000b25c g     F .text	000000ec TwoWire::endTransmission(unsigned char)
+0000c5d4 g     F .text	00000010 Adafruit_SSD1306::~Adafruit_SSD1306()
+1fff8d9c g     O .data	00000018 calOffsetRollers
+1fff8dcc g     O .data	00000034 pbDepthList
+1fff9bd5 g     O .bss	00000001 slurSustain
+1fff9cf4 g     O .bss	00000004 EventResponder::lastInterrupt
+1fff9a0d g     O .bss	00000001 biteJumper
+0000f638 g     F .text	00000184 uart1_status_isr
+1fff9aa0 g     O .bss	0000000e fastPatch
+1fffa10a g     O .bss	00000002 usb_midi_msg_sysex_len
+0000f144 g     F .text	0000007c serial2_set_tx
+0000e488 g     F .text	000001a6 memcpy
+0000e674  w    F .text	00000006 randnum_isr
+0000f5f0 g     F .text	00000048 serial2_clear
+1fff9b8c g     O .bss	00000004 pressureSensor
+1fff9ac2 g     O .bss	00000002 gateOpenEnable
+1fff9fb8 g     O .bss	00000004 usb_midi_handleRealTimeSystem
+1fff98f0 g     O .data	00000000 .hidden __TMC_END__
+1fff9b00 g     O .bss	00000004 lastFingering
+1fff8fc8 g     O .data	00000024 vibratorMenuEntries
+00011a54 g     F .text	00000012 .hidden __aeabi_fcmpgt
+1fff9b1a g     O .bss	00000001 leverIsOn
+1fff9a0a g     O .bss	00000002 biteControl
+1fff9238 g     O .data	00000030 isr_table_portC
+1fff9d70 g     O .bss	00000004 systick_millis_count
+0000e630  w    F .text	00000044 bus_fault_isr
+0000b170 g     F .text	000000ec TwoWire::wait_idle()
+0000dc84  w    F .text	00000008 HardwareSerial3::setTX(unsigned char, bool)
+1fff990b g     O .bss	00000001 K4
+0000e674  w    F .text	00000006 watchdog_isr
+00001340 g     F .text	000001c4 breath()
+0000e6bc g     F .text	00000044 nvic_execution_priority
+0000c968 g     F .text	000003c6 Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)
+0000b544 g     F .text	0000000c i2c1_isr
+1fff9b0c g     O .bss	00000001 lastpcc2
+1fff9f79 g     O .bss	00000001 usb_configuration
+0000e674  w    F .text	00000006 dma_ch11_isr
+0000b968 g     F .text	00000036 Adafruit_I2CDevice::begin(bool)
+0000daa0  w    F .text	0000000c HardwareSerial2::write9bit(unsigned long)
+1fff9ab8 g     O .bss	00000002 fingering
+1fff9c1f g     O .bss	00000001 widiOn
+000024d8 g     F .text	00000288 autoCal()
+1fff9911 g     O .bss	00000001 LH3
+000150c0 g     O .text	00000010 mainMenuPage
+0000dbc4  w    F .text	00000020 HardwareSerial2::write(unsigned int)
+0000ff00  w    F .text	00000002 serialEvent2()
+0000e674  w    F .text	00000006 i2c2_isr
+0000e9d8 g     F .text	00000224 analogWrite
+1fff9374  w    O .data	00000018 usb_string_manufacturer_name
+1fff9f7c g     O .bss	0000000a usb_rx_byte_count_data
+0000b870 g     F .text	0000009e Adafruit_BusIO_Register::read(unsigned char*, unsigned char)
+0000df18 g     F .text	0000001c pit1_isr
+1fff9b50 g     O .bss	00000004 oldextrac2
+00011af4 g     F .text	00000010 malloc
+0000c5e4 g     F .text	00000094 Adafruit_SSD1306::ssd1306_command1(unsigned char)
+0000e674  w    F .text	00000006 dma_ch4_isr
+0001523c  w    O .text	00000020 TwoWire::i2c1_hardware
+0000e674  w    F .text	00000006 software_isr
+0000f10c g     F .text	00000038 serial2_set_transmit_pin
+00000528 g     F .text	00000068 FilterOnePole::input(float)
+0000e674  w    F .text	00000006 dma_ch7_isr
+00000458 g     F .text	0000003c FilterOnePole::FilterOnePole(FILTER_TYPE, float, float)
+0000ae24  w    F .text	0000001e TwoWire::read()
+00011634 g     F .text	0000001c .hidden __aeabi_i2f
+1fff9b08 g     O .bss	00000001 lastOctaveR
+00010874 g     F .text	00000088 usb_init
+1fff9b90 g     O .bss	00000002 priority
+00008d6c g     F .text	0000001c midiSetChannel(unsigned char)
+0000cfd8 g     F .text	00000002 Adafruit_GFX::invertDisplay(bool)
+00011984 g     F .text	00000066 .hidden __lesf2
+0000fa54 g     F .text	0000006c serial3_end
+1fff9a82 g     O .bss	00000002 cvVibRate
+1fff8e04 g     O .data	00000004 pitchBend
+0000e674  w    F .text	00000006 lptmr_isr
+1fff9a0c g     O .bss	00000001 biteIsOn
+00008e6c g     F .text	0000007c midiSendNoteOn(unsigned char, unsigned char)
+1fffa170 g     O .bss	00000004 __malloc_top_pad
+1fff9916 g     O .bss	00000001 LHs
+1fff9a14 g     O .bss	00000002 brHarmSelect
+1fff9c18 g     O .bss	00000004 vibZeroBite
+0000e91c g     F .text	00000014 rtc_set
+1fff9ba0 g     O .bss	0000000a rotations_a
+0000dc94  w    F .text	00000006 HardwareSerial3::transmitterEnable(unsigned char)
+1fff98f0 g       .bss	00000000 __bss_start__
+1fff9a24 g     O .bss	00000004 breathCalZero
+00012c18  w    O .text	00000010 teensy::inplace_function<void (), 16u, 8u>::inplace_function<void (&)(), void (*)(), void>(void (&)())::vt
+1fff9a1e g     O .bss	00000002 breathCC
+1fff8d34 g     O .data	00000000 .hidden __dso_handle
+0000ef80 g     F .text	000000bc serial2_format
+1fff9a90 g     O .bss	00000004 exSensorIndicator
+1fff9930 g     O .bss	00000001 activeMIDIchannel
+00015d20 g     O .text	00000068 vtable for HardwareSerial2
+0000fc84 g     F .text	0000008c serial3_getchar
+0000a92c g     F .text	00000020 readSetting(unsigned short)
+1fff8c30 g       .data	00000000 _sdata
+0001525c  w    O .text	00000020 TwoWire::i2c0_hardware
+1fff9fac g     O .bss	00000004 usb_midi_handleNoteOn
+00011214 g     F .text	00000010 finitef
+00012714 g     F .text	00000024 _sbrk_r
+00007ca4 g     F .text	00000104 drawBatt(int, int)
+0000ba80 g     F .text	00000078 Adafruit_I2CDevice::write_then_read(unsigned char const*, unsigned int, unsigned char*, unsigned int, bool)
+0000dc74  w    F .text	00000010 HardwareSerial3::attachRts(unsigned char)
+0000c1d4 g     F .text	000000f2 Adafruit_SSD1306::drawPixel(short, short, unsigned short)
+000001bc g     F .text	000001c8 ResetHandler
+0000f7f4 g     F .text	00000020 serial2_add_memory_for_write
+0000e674  w    F .text	00000006 can1_bus_off_isr
+0000e674  w    F .text	00000006 ftm2_isr
+00005240 g     F .text	000002dc autoCalSelected()
+1fffa11c g     O .bss	00000008 usb_cdc_line_coding
+0000ecec g     F .text	0000004c digitalWrite
+0000cd50 g     F .text	00000218 Adafruit_SSD1306::display()
+0000e674  w    F .text	00000006 uart5_status_isr
+0000e674  w    F .text	00000006 lpuart0_status_isr
+1fff9d00 g     O .bss	00000004 EventResponder::lastYield
+00015fe4 g     O .text	00000005 usb_endpoint_config_table
+0000e674  w    F .text	00000006 dma_ch9_isr
+0000df34 g     F .text	0000001c pit2_isr
+0000eea4 g     F .text	000000dc serial2_begin
+0000fc5c g     F .text	00000028 serial3_available
+1fffa168 g     O .bss	00000004 __malloc_max_sbrked_mem
+0000daf0  w    F .text	00000004 HardwareSerial2::clear()
+0000ed54 g     F .text	00000078 pinMode
+0001093c g     F .text	00000050 usb_free
+0000e674  w    F .text	00000006 i2c3_isr
+1fff9abe g     O .bss	00000002 fwcType
+1fff9915 g     O .bss	00000001 LHp3
+00001504 g     F .text	00000730 pitch_bend()
+0001198c g     F .text	0000005e .hidden __nesf2
+0000f2a0 g     F .text	000000f8 serial2_putchar
+1fff9a6c g     O .bss	00000002 curve
+1fff9fd0 g     O .bss	00000004 usb_midi_handleSysExPartial
+0000db58  w    F .text	00000004 HardwareSerial2::available()
+0000f518 g     F .text	0000008c serial2_getchar
+1fff9a80 g     O .bss	00000002 cvTune
+0001602c g       .ARM.exidx	00000000 __exidx_start
+0000defc g     F .text	0000001c pit0_isr
+0000dc40  w    F .text	00000010 HardwareSerial3::write(unsigned char const*, unsigned int)
+1fff9fe6 g     O .bss	00000001 usb_midi_msg_data1
+1fff9cf0 g     O .bss	00000004 EventResponder::firstYield
+0000dcf4  w    F .text	00000020 HardwareSerial3::write(unsigned long)
+0000cfa0 g     F .text	00000018 Adafruit_GFX::writeFillRect(short, short, short, short, unsigned short)
+0000e674  w    F .text	00000006 can1_error_isr
+000120a4 g     F .text	000003d8 _realloc_r
+00012744 g     F .text	00000048 __libc_init_array
+1fffa44c g       .bss	00000000 __bss_end
+0000ae18  w    F .text	0000000c TwoWire::available()
+1fff9c74 g     O .bss	00000068 display
+1fff9ab0 g     O .bss	00000004 fingeredNote
+0000e674  w    F .text	00000006 can0_wakeup_isr
+0000dab8  w    F .text	00000018 HardwareSerial2::write(char const*)
+0000e674  w    F .text	00000006 flash_cmd_isr
+0000dad0  w    F .text	00000010 HardwareSerial2::write(unsigned char const*, unsigned int)
+1fff9bfa g     O .bss	00000002 vibControl
+0000f900 g     F .text	00000098 serial3_begin
+0000b348 g     F .text	000001f0 TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
+0000fd80 g     F .text	00000128 uart2_status_isr
+0000e68c  w    F .text	0000002c _sbrk
+00005e2c g     F .text	00000198 updateAdjustMenu(unsigned long, KeyState&, bool, bool)
+00002cb4 g     F .text	00000ca8 readSwitches()
+0000e7ac g     F .text	000000e8 attachInterrupt
+1fff91a8 g     O .data	00000004 __brkval
+1fffa124 g     O .bss	00000001 usb_cdc_line_rtsdtr
+00010fc8 g     F .text	00000048 usb_serial_flush_callback
+0000db30  w    F .text	00000020 HardwareSerial2::begin(unsigned long, unsigned long)
+00016004 g     F .text	00000000 _init
+00008df0 g     F .text	0000007c midiSendControlChange(unsigned char, unsigned char)
+00011224 g     F .text	00000244 __ieee754_expf
+0000fbec g     F .text	00000028 serial3_write
+0000dc50  w    F .text	00000008 HardwareSerial3::addMemoryForWrite(void*, unsigned int)
+1fff9908 g     O .bss	00000001 K1
+0000e674  w    F .text	00000006 svcall_isr
+1fff9932 g     O .bss	00000001 activePatch
+0000e42c g     F .text	0000004c eeprom_write_byte
+1fff9a78 g     O .bss	00000008 cvTimer
+0000930c g     F .text	0000161e readEEPROM(bool)
+1fff9a94 g     O .bss	00000002 extraCT
+1fff9a54 g     O .bss	00000004 ccBreathSendTime
+0000e674  w    F .text	00000006 dma_ch15_isr
+1fff9b5e g     O .bss	00000002 otfKey
+0000123c g     F .text	00000074 multiMap(unsigned short, unsigned short const*, unsigned short const*, unsigned char)
+000114c8 g     F .text	00000164 .hidden __aeabi_fsub
+0001527c g     O .text	00000024 vtable for TwoWire
+0000e674  w    F .text	00000006 uart1_error_isr
+00012bf0 g     F .text	00000028 __libc_fini_array
+0000ec18 g     F .text	000000d4 analogWriteFrequency
+0000e674  w    F .text	00000006 usbhs_phy_isr
+1fffa44c g       .bss	00000000 _ebss
+0000cf6c g     F .text	0000000c Adafruit_GFX::writePixel(short, short, unsigned short)
+1fff9190 g     O .data	00000014 Serial3
+0000b954 g     F .text	00000012 Adafruit_I2CDevice::Adafruit_I2CDevice(unsigned char, TwoWire*)
+0000d8e0 g     F .text	00000130 Adafruit_GFX::write(unsigned char)
+0000dc9c  w    F .text	00000004 HardwareSerial3::end()
+1fff9bd6 g     O .bss	00000001 specialKey
+1fff8dc0 g     O .data	00000004 filterFreq
+1fff9afc g     O .bss	00000004 lastDeglitchTime
+1fff9921 g     O .bss	00000001 R6
+1fff9af8 g     O .bss	00000001 lap
+00011a40 g     F .text	00000012 .hidden __aeabi_fcmpge
+0000dae8  w    F .text	00000008 HardwareSerial2::addMemoryForRead(void*, unsigned int)
+0000e674 g     F .text	00000006 unused_isr
+0000c4a0 g     F .text	0000006e Adafruit_SSD1306::drawFastHLine(short, short, short, unsigned short)
+1fff8e70 g     O .data	00000004 touch_Thr
+0000dc64  w    F .text	00000010 HardwareSerial3::attachCts(unsigned char)
+1fff9bda g     O .bss	00000001 subOctaveDouble
+0000e674  w    F .text	00000006 spi0_isr
+0000fea8 g     F .text	00000038 serial3_add_memory_for_read
+1fffa2b4 g     O .bss	00000001 __lock___malloc_recursive_mutex
+0000dcc4  w    F .text	00000004 HardwareSerial3::read()
+1fff9adc g     O .bss	00000004 glissTargetNote
+00011660 g     F .text	0000007c .hidden __floatdisf
+0000e674  w    F .text	00000006 dma_ch3_isr
+1fff9a50 g     O .bss	00000004 breath_on_time
+1fff9bfe g     O .bss	00000001 vibLedOff
+1fffa174 g     O .bss	00000138 __sf
+1fff9a86 g     O .bss	00000002 deglitch
+1fff991f g     O .bss	00000001 R4
+1fff9b71 g     O .bss	00000001 pcCombo2
+1fff9b3c g     O .bss	00000004 oldbitecc
+0001197c g     F .text	0000006e .hidden __gtsf2
+1fff9925 g     O .bss	00000001 RHp1
+0000e704 g     F .text	00000004 operator delete(void*, unsigned int)
+0000e674  w    F .text	00000006 flash_error_isr
+0000918c g     F .text	0000004c sendWLPower(unsigned char)
+1fff8dbf g     O .data	00000001 currentRotation
+00011a2c g     F .text	00000012 .hidden __aeabi_fcmple
+1fff9ad0 g     O .bss	00000004 glissInterval
+0000e674  w    F .text	00000006 uart5_error_isr
+0000cf78 g     F .text	00000012 Adafruit_GFX::writeFastVLine(short, short, short, unsigned short)
+0000e674  w    F .text	00000006 rtc_seconds_isr
+000012b0 g     F .text	00000090 breathCurve(unsigned int)
+0000e674  w    F .text	00000006 pdb_isr
+0000e630  w    F .text	00000044 usage_fault_isr
+0000e674  w    F .text	00000006 dac1_isr
+00000000 g     O .text	000001bc _VectorsFlash
+1fff9b92 g     O .bss	00000001 programonce
+1fff8ea0 g     O .data	00000024 breathMenuEntries
+0000e674  w    F .text	00000006 dma_ch14_isr
+0000e894 g     F .text	00000088 detachInterrupt
+1fffa128 g     O .bss	00000004 usb_cdc_line_rtsdtr_millis
+00011100 g     F .text	00000050 HardwareSerial::addToSerialEventsList()
+00008d88 g     F .text	00000068 midiSendProgramChange(unsigned char)
+0000da64 g     F .text	00000010 systick_isr
+1fff9c1c g     O .bss	00000002 vibrato
+0000fc14 g     F .text	00000018 serial3_flush
+0000e674  w    F .text	00000006 rtc_alarm_isr
+00012790 g     F .text	00000002 __retarget_lock_release_recursive
+1fff9b16 g     O .bss	00000002 leverCC
+0000db04  w    F .text	00000010 HardwareSerial2::attachRts(unsigned char)
+0000e674  w    F .text	00000006 dma_ch2_isr
+0000e674  w    F .text	00000006 ftm1_isr
+000114a4 g     F .text	00000008 .hidden __math_uflowf
+1fff9a5c g     O .bss	00000004 ccSendTime2
+0000fac0 g     F .text	00000038 serial3_set_transmit_pin
+0000e67c  w    F .text	0000000c startup_early_hook
+0000e674  w    F .text	00000006 dma_ch13_isr
+0000db5c  w    F .text	00000004 HardwareSerial2::flush()
+0000e674  w    F .text	00000006 uart2_error_isr
+1fff9ce0 g     O .bss	00000004 midiChannel
+00000864 g     F .text	000000c0 cvUpdate()
+0000b810 g     F .text	0000005e Adafruit_BusIO_Register::write(unsigned long, unsigned char)
+1fff9a70 g     O .bss	00000004 cvPitch
+0000fee0 g     F .text	00000020 serial3_add_memory_for_write
+1fff9a4c g     O .bss	00000002 breathMaxVal
+0000fb50 g     F .text	00000002 serial3_set_rx
+1fffa44c g       .bss	00000000 __bss_end__
+1fff939c g     O .data	00000016 usb_string_serial_number_default
+0000e630 g     F .text	00000044 fault_isr
+000129e4 g     F .text	0000020c _free_r
+1fff9fc8 g     O .bss	00000004 usb_midi_handleStop
+00007c58 g     F .text	0000000c drawSensorPixels()
+1fff8e7a g     O .data	00000002 vibSensBite
+1fff9b28 g     O .bss	00000002 leverThrVal
+0000e674  w    F .text	00000006 usb_charge_isr
+1fffa2b8 g     O .bss	00000190 __atexit0
+1fff9a96 g     O .bss	00000002 extraCT2
+0000e674  w    F .text	00000006 cmt_isr
+1fff9fa4 g     O .bss	00000004 usb_midi_handleControlChange
+0000e674  w    F .text	00000006 usbhs_isr
+1fff991c g     O .bss	00000001 R1
+00000458 g     F .text	0000003c FilterOnePole::FilterOnePole(FILTER_TYPE, float, float)
+1fff97bc g     O .data	00000004 __malloc_sbrk_base
+1fff8dc8 g     O .data	00000004 oldpb
+0000e674  w    F .text	00000006 ftm3_isr
+0000aa84 g     F .text	00000048 configShowMessage(char const*)
+0000695c g     F .text	00000084 adjustPageUpdate(KeyState&, unsigned long)
+0000e674  w    F .text	00000006 tsi0_isr
+1fff9b12 g     O .bss	00000002 levelCC
+0000d148 g     F .text	00000094 Adafruit_GFX::fillRect(short, short, short, short, unsigned short)
+1fff9bb8 g     O .bss	0000000a rotations_c
+0000e6b8  w    F .text	00000002 __cxa_pure_virtual
+000092b8 g     F .text	0000001e setBit(unsigned short&, unsigned char, unsigned short)
+0000e674  w    F .text	00000006 spi2_isr
+00011634 g     F .text	0000001c .hidden __floatsisf
+00011150  w    F .text	00000002 serialEvent()
+1fff9f7a g     O .bss	00000001 usb_reboot_timer
+00009114 g     F .text	00000078 midiPanic()
+1fff9c0c g     O .bss	00000004 vibThrBiteLo
+0001289c g     F .text	00000088 __register_exitproc
+0000dd64  w    F .text	00000002 teensy::inplace_function_detail::vtable<void>::vtable()::{lambda(void*)#4}::_FUN(void*)
+0000e3f8 g     F .text	00000034 eeprom_read_byte
+1fff9927 g     O .bss	00000001 RHp3
+00012624 g     F .text	0000008a strncmp
+0000a94c g     F .text	000000c8 sendSysexSettings()
+1fff8ec4 g     O .data	0000004c controlMenuEntries
+1fff8d38 g     O .data	00000001 addedIntervals
+1fff9288 g     O .data	00000008 isr_table_portE
+1fff8d3a g     O .data	00000002 breathInterval
+0000ff08 g     F .text	00000078 touchRead
+00000021 g       *ABS*	00000000 _teensy_model_identifier
+00011a68 g     F .text	0000004c .hidden __aeabi_f2iz
+000126b0 g     F .text	00000064 strncpy
+1fffa140 g     O .bss	00000028 __malloc_current_mallinfo
+1fff990a g     O .bss	00000001 K3
+0001198c g     F .text	0000005e .hidden __eqsf2
+1fff9b70 g     O .bss	00000001 pcCombo1
+0000e204 g     F .text	00000068 analogReadRes
+0000cf68 g     F .text	00000002 Adafruit_GFX::endWrite()
+1fffa130 g     O .bss	0000000c HardwareSerial::s_serials_with_serial_events
+1fff9b18 g     O .bss	00000002 leverControl
+0000e674  w    F .text	00000006 can0_bus_off_isr
+000100f8 g     F .text	00000002 _reboot_Teensyduino_
+0000f398 g     F .text	00000110 serial2_write
+0000daac  w    F .text	0000000c HardwareSerial2::write(unsigned char)
+0000db84  w    F .text	00000020 HardwareSerial2::write(unsigned long)
+0001208c g     F .text	00000018 realloc
+0000f4c0 g     F .text	00000030 serial2_write_buffer_free
+1fff9f86 g     O .bss	00000001 usb_rx_memory_needed
+00008f58 g     F .text	00000064 midiSendAfterTouch(unsigned char)
+1fff9b84 g     O .bss	00000002 portLimit
+000100fc g     F .text	00000778 usb_isr
+0001247c g     F .text	0000000c __cxa_atexit
+1fff9ae4 g     O .bss	00000002 harmSetting
+00011844 g     F .text	00000136 .hidden __aeabi_fdiv
+1fff9fa8 g     O .bss	00000004 usb_midi_handleNoteOff
+0000dd88 g     F .text	000000dc IntervalTimer::beginCycles(teensy::inplace_function<void (), 16u, 8u>, unsigned long)
+0000d430 g     F .text	000000f0 Adafruit_GFX::drawBitmap(short, short, unsigned char const*, short, short, unsigned short)
+0000c678 g     F .text	000000ec Adafruit_SSD1306::invertDisplay(bool)
+1fff92ba g     O .data	00000001 _serialEvent3_default
+1fff9aec g     O .bss	00000002 hmzKey
+1fff9bf4 g     O .bss	00000002 velocity
+0000e674  w    F .text	00000006 uart3_error_isr
+00011650 g     F .text	0000008c .hidden __floatundisf
+0000e674  w    F .text	00000006 porta_isr
+00015cc4 g     O .text	00000058 vtable for Adafruit_GFX
+0000d050 g     F .text	00000054 Adafruit_GFX::drawFastHLine(short, short, short, unsigned short)
+1fff9b74 g     O .bss	00000002 pinkySetting
+1fff83bc g     O .usbbuffers	00000870 usb_buffer_memory
+0000e674  w    F .text	00000006 low_voltage_isr
+1fff9c1e g     O .bss	00000001 widiJumper
+0000ad14 g     F .text	00000070 handleSysexChunk(unsigned char const*, unsigned short, bool)
+1fff9b10 g     O .bss	00000002 legacyBrAct
+1fff93b4 g     O .data	00000408 __malloc_av_
+0001162c g     F .text	00000024 .hidden __aeabi_ui2f
+1fffa448 g     O .bss	00000004 __atexit
+0000e674  w    F .text	00000006 can0_error_isr
+1fff9b09 g     O .bss	00000001 lastPinkyKey
+0000e934 g     F .text	000000a4 _init_Teensyduino_internal_
+1fff9cdc g     O .bss	00000001 subVibSquelch
+1fff8f88 g     O .data	00000014 rotSubCMenuEntries
+0000fd5c g     F .text	00000024 serial3_clear
+1fff9a9c g     O .bss	00000002 extracThrVal
+1fff9b1c g     O .bss	00000002 leverMaxVal
+1fff9a76 g     O .bss	00000002 cvScale
+0000e674  w    F .text	00000006 dma_ch12_isr
+00012074 g     F .text	0000000c __malloc_lock
+0000e674  w    F .text	00000006 can1_wakeup_isr
+1fff8200 g     O .dmabuffers	000001bc _VectorsRam
+1fff9a8a g     O .bss	00000001 doPatchUpdate
+0000da74 g     F .text	0000002c HardwareSerial2::begin(unsigned long)
+0000df50 g     F .text	0000001c pit3_isr
+1fff9923 g     O .bss	00000001 RH2
+0000c14c g     F .text	0000007c SPIClass::begin()
+0001198c g     F .text	0000005e .hidden __cmpsf2
+1fff92c0 g     O .data	00000001 yield_active_check_flags
+0000e674  w    F .text	00000006 enet_rx_isr
+0001278c g     F .text	00000002 __retarget_lock_acquire_recursive
+0000e674  w    F .text	00000006 portc_isr
+1fff9b68 g     O .bss	00000004 pbDn
+00012580 g     F .text	000000a4 memset
+1fff8f10 g     O .data	0000002c extrasMenuEntries
+0000e478 g     F .text	00000010 main
+0000cff8 g     F .text	00000058 Adafruit_GFX::drawFastVLine(short, short, short, unsigned short)
+1fff9ac4 g     O .bss	00000001 glissActive
+1fffa16c g     O .bss	00000004 __malloc_max_total_mem
+1fff9b93 g     O .bss	00000001 quarterToneTrigger
+1fff9af4 g     O .bss	00000004 initial_breath_value
+0000f5a4 g     F .text	0000004c serial2_peek
+00011660 g     F .text	0000007c .hidden __aeabi_l2f
+0000f21c g     F .text	00000044 serial2_set_rts
+00008fbc g     F .text	00000090 midiSendPitchBend(unsigned short)
+00011984 g     F .text	00000066 .hidden __ltsf2
+0000e630  w    F .text	00000044 memmanage_fault_isr
+1fff9ac8 g     O .bss	00000004 glissCurrentNote
+1fff9b80 g     O .bss	00000002 polySelect
+1fff9b94 g     O .bss	00000001 rSum
+0000fb98 g     F .text	00000040 serial3_set_cts
+00011154 g     F .text	00000070 usb_init_serialnumber
+1fff9b0e g     O .bss	00000002 legacy
+1fff8f60 g     O .data	00000014 rotSubAMenuEntries
+1fff9b24 g     O .bss	00000004 leverPortZero
+1fff8f3c g     O .data	00000024 mainMenuEntries
+0000cf68 g     F .text	00000002 Adafruit_GFX::startWrite()
+00016028 g       .text	00000000 __init_array_end
+00011b14 g     F .text	00000560 _malloc_r
+1fffa13c g     O .bss	00000001 HardwareSerial::s_count_serials_with_serial_events
+0000e674  w    F .text	00000006 debugmonitor_isr
+1fff9bf0 g     O .bss	00000002 velBias
+1fff9fbc g     O .bss	00000004 usb_midi_handleSongPosition
+000150bc g     O .text	00000004 cursorBlinkInterval
+1fff993c g     O .bss	000000c8 battMeasured
+1fff9bc4 g     O .bss	0000000a saxFinger
+1fff9268 g     O .data	00000020 isr_table_portD
+0000b954 g     F .text	00000012 Adafruit_I2CDevice::Adafruit_I2CDevice(unsigned char, TwoWire*)
+0000f260 g     F .text	00000040 serial2_set_cts
+1fff9fa0 g     O .bss	00000004 usb_midi_handleContinue
+00001c34 g     F .text	000000bc doorKnobCheck()
+1fff9fe7 g     O .bss	00000001 usb_midi_msg_data2
+1fff9a8c g     O .bss	00000004 exSensor
+0000dc10  w    F .text	0000000c HardwareSerial3::write9bit(unsigned long)
+0000c1c8 g     F .text	00000008 SPIClass::transfer(void const*, void*, unsigned int)
+66fc6247 g       *ABS*	00000000 __rtc_localtime
+0000edcc g     F .text	00000040 micros
+1fff9bd4 g     O .bss	00000001 slurSostenuto
+0000af20 g     F .text	00000060 sda_rising_isr0()
+00011650 g     F .text	0000008c .hidden __aeabi_ul2f
+0000e674  w    F .text	00000006 cmp1_isr
+0000e674  w    F .text	00000006 ftm0_isr
+0000daf4  w    F .text	00000010 HardwareSerial2::attachCts(unsigned char)
+000119f4 g     F .text	00000010 .hidden __aeabi_cfcmple
+0000b010 g     F .text	00000038 TwoWire::setClock(unsigned long)
+00012944 g     F .text	000000a0 _malloc_trim_r
+1fff9b2a g     O .bss	00000002 lpinky3
+1fff9b38 g     O .bss	00000001 octaveR
+1fff9370 g     O .data	00000004 string0
+000116dc g     F .text	00000168 .hidden __mulsf3
+00007bec g     F .text	0000006c initDisplay()
+0000e688  w    F .text	00000002 startup_late_hook
+0000dcc0  w    F .text	00000004 HardwareSerial3::peek()
+1fff8d3c g     O .data	00000030 calOffsetLH
+000004d0 g     F .text	00000058 FilterOnePole::output()
+0000c5d4 g     F .text	00000010 Adafruit_SSD1306::~Adafruit_SSD1306()
+1fff990c g     O .bss	00000001 K5
+1fff8e78 g     O .data	00000002 vibSens
+0000dd34  w    F .text	00000020 HardwareSerial3::write(unsigned int)
+00015d1c  w    O .text	00000001 _serialEvent_default
+000137d0 g     O .text	00000022 curveIn
+1fff938c g     O .data	0000000e usb_string_midi_port1_default
+1fff9a9a g     O .bss	00000002 extracMaxVal
+1fff9fe4 g     O .bss	00000001 usb_midi_msg_cable
+0000fc2c g     F .text	00000030 serial3_write_buffer_free
+0000dca0  w    F .text	00000020 HardwareSerial3::begin(unsigned long, unsigned long)
+0000dd14  w    F .text	00000020 HardwareSerial3::write(long)
+1fff9ac0 g     O .bss	00000001 gateOpen
+1fff8fec g     O .data	00000016 usb_string_product_name
+0000b9a0 g     F .text	0000006e Adafruit_I2CDevice::write(unsigned char const*, unsigned int, bool, unsigned char const*, unsigned int)
+0000ee0c g     F .text	00000098 delay
+1fff9b78 g     O .bss	00000002 pitchbThrVal
+0000e674  w    F .text	00000006 tpm0_isr
+00016028 g     F .fini	00000000 _fini
+1fff9931 g     O .bss	00000001 activeNote
+0000ae60 g     F .text	00000026 TwoWire::write(unsigned char)
+0000e674  w    F .text	00000006 i2s0_rx_isr
+0000e674  w    F .text	00000006 uart4_error_isr
+0000e058 g     F .text	00000010 Print::print(long)
+1fff9ad8 g     O .bss	00000004 glissTargetInterval
+0000b58c g     F .text	00000092 Adafruit_MPR121::writeRegister(unsigned char, unsigned char)
+1fff8e7c g     O .data	00000002 vibSquelch
+000109cc g     F .text	000000a0 usb_midi_write_packed
+1fff9a98 g     O .bss	00000001 extracIsOn
+1fff9ae2 g     O .bss	00000002 harmSelect
+00012938 g     F .text	0000000c atexit
+1fff9b30 g     O .bss	00000004 mainState
+0001197c g     F .text	0000006e .hidden __gesf2
+0000dd60  w    F .text	00000002 teensy::inplace_function_detail::vtable<void>::vtable()::{lambda(void*, void*)#3}::_FUN(void*, void*)
+0000ebfc g     F .text	0000001c analogWriteRes
+1fff9b54 g     O .bss	00000004 oldlevercc
+1fff9909 g     O .bss	00000001 K2
+000114c0 g     F .text	0000016c .hidden __aeabi_frsub
+0000d1dc g     F .text	000000cc Adafruit_GFX::drawRect(short, short, short, short, unsigned short)
+1fff9ae0 g     O .bss	00000001 halfPitchBendKey
+0000b75c g     F .text	0000001a Adafruit_BusIO_Register::Adafruit_BusIO_Register(Adafruit_I2CDevice*, unsigned short, unsigned char, unsigned char, unsigned char)
+1fff991d g     O .bss	00000001 R2
+00005fcc g     F .text	00000008 statusLedOff()
+1fff990e g     O .bss	00000001 K7
+0000e674  w    F .text	00000006 can0_message_isr
+1fff9b7c g     O .bss	00000004 pitchlatch
+1fff98e8 g     O .data	00000004 _impure_ptr
+00011a04 g     F .text	00000012 .hidden __aeabi_fcmpeq
+0000e674  w    F .text	00000006 can1_message_isr
+0000e674  w    F .text	00000006 nmi_isr
+1fff9004 g     O .data	000000bc Wire
+0000db50  w    F .text	00000004 HardwareSerial2::peek()
+000116dc g     F .text	00000168 .hidden __aeabi_fmul
+0000de64 g     F .text	00000098 IntervalTimer::end()
+1fff9a58 g     O .bss	00000004 ccSendTime
+1fff9fdc g     O .bss	00000004 usb_midi_handleTuneRequest
+00016010 g       .text	00000000 __preinit_array_end
+1fff8e08 g     O .data	00000040 saxFingerResult
+1fff9bf8 g     O .bss	00000002 vib2BrDirection
+00001cf0 g     F .text	00000058 battCheck()
+0000c580 g     F .text	00000054 Adafruit_SSD1306::Adafruit_SSD1306(unsigned char, unsigned char, TwoWire*, signed char, unsigned long, unsigned long)
+00005fc4 g     F .text	00000008 statusLedOn()
+000119ec g     F .text	00000018 .hidden __aeabi_cfrcmple
+0000dae0  w    F .text	00000008 HardwareSerial2::addMemoryForWrite(void*, unsigned int)
+0000e674  w    F .text	00000006 sdhc_isr
+00015d88 g     O .text	00000068 vtable for HardwareSerial3
+0000dccc  w    F .text	00000004 HardwareSerial3::flush()
+1fff9be4 g     O .bss	00000004 touchSensorRH
+0000aa14 g     F .text	00000064 sendSysexVersion()
+1fff9fe5 g     O .bss	00000001 usb_midi_msg_channel
+1fff9aee g     O .bss	00000002 hmzLimit
+0000ae44  w    F .text	00000016 TwoWire::peek()
+0000ae5c  w    F .text	00000002 TwoWire::flush()
+0000d3d4 g     F .text	0000005c Adafruit_GFX::drawTriangle(short, short, short, short, short, short, unsigned short)
+00002760 g     F .text	00000554 setup
+00015f84 g     O .text	00000060 usb_descriptor_list
+0000ff80 g     F .text	00000044 usb_rx
+1fff9ce8 g     O .bss	00000004 sysex_rcv_buffer
+0000abe8 g     F .text	0000012c handleSysex(unsigned char*, unsigned int)
+0000e674  w    F .text	00000006 dma_ch10_isr
+0000c1d0  w    F .text	00000002 Print::flush()
+1fff9fc4 g     O .bss	00000004 usb_midi_handleStart
+1fff9bf6 g     O .bss	00000001 velocitySend
+0000b550 g     F .text	00000006 Adafruit_MPR121::Adafruit_MPR121()
+1fff9b34 g     O .bss	00000001 newFingeringFirstTimeFlag
+0000d520 g     F .text	000003c0 Adafruit_GFX::drawChar(short, short, unsigned char, unsigned short, unsigned short, unsigned char, unsigned char)
+0000b550 g     F .text	00000006 Adafruit_MPR121::Adafruit_MPR121()
+0000e674  w    F .text	00000006 uart0_error_isr
+1fff991a g     O .bss	00000002 PBdepth
+000108fc g     F .text	00000040 usb_malloc
+00011a18 g     F .text	00000012 .hidden __aeabi_fcmplt
+1fff9bf2 g     O .bss	00000002 velSmpDl
+0000e674  w    F .text	00000006 i2s0_isr
+00010a6c g     F .text	000000cc usb_midi_send_sysex_add_term_bytes
+1fff8e76 g     O .data	00000002 vibRetn
+00006100 g     F .text	00000058 ledMeter(unsigned char)
+20008000 g       .bss	00000000 _estack
+00009234 g     F .text	00000012 convertFromMidiValue(unsigned char const*)
+00000590  w    F .text	00000004 teensy::inplace_function_detail::vtable<void>::vtable<void (*)()>(teensy::inplace_function_detail::wrapper<void (*)()>)::{lambda(void*)#1}::_FUN(void*)
+0000e674  w    F .text	00000006 enet_timer_isr
+1fff9913 g     O .bss	00000001 LHp1
+1fff9b8a g     O .bss	00000002 portamento
+1fff9a1c g     O .bss	00000002 breathAT
+0000ae88 g     F .text	00000036 TwoWire::write(unsigned char const*, unsigned int)
+1fff98f0 g       .data	00000000 _edata
+1fff9acc g     O .bss	00000001 glissEnable
+1fff9a22 g     O .bss	00000002 breathCC2Rise
+0000e674  w    F .text	00000006 i2s0_tx_isr
+0000e674  w    F .text	00000006 adc1_isr
+0000905c g     F .text	000000b8 midiReset()
+1fff9a10 g     O .bss	00000004 biteSensor
+1fff8dc4 g     O .data	00000002 glissTime
+1fff938c  w    O .data	0000000e usb_string_midi_port1
+1fff9ce4 g     O .bss	00000002 sysex_buf_size
+0000e674  w    F .text	00000006 cmp0_isr
+0000059c  w    F .text	00000006 teensy::inplace_function_detail::vtable<void>::vtable<void (*)()>(teensy::inplace_function_detail::wrapper<void (*)()>)::{lambda(void*, void*)#3}::_FUN(void*, void*)
+1fff9a4e g     O .bss	00000002 breathThrVal
+1fff9bc2 g     O .bss	00000001 rotatorOn
+1fff9bac g     O .bss	0000000a rotations_b
+1fff9a48 g     O .bss	00000004 breathLevel
+1fff9f9c g     O .bss	00000004 usb_midi_handleClock
+1fff9bee g     O .bss	00000002 trill3_interval
+0000e708 g     F .text	0000005c ultoa
+1fff9a64 g     O .bss	00000001 configManagementMode
+00011ab4 g     F .text	0000003e .hidden __aeabi_f2uiz
+1fff9a66 g     O .bss	00000002 ctouchThrVal
+0000af80 g     F .text	00000090 TwoWire::begin()
+0000c510 g     F .text	0000006e Adafruit_SSD1306::drawFastVLine(short, short, short, unsigned short)
+1fff9b5c g     O .bss	00000001 oneroll
+0000f1c0 g     F .text	0000005c serial2_set_rx
+0000e700 g     F .text	00000004 operator new(unsigned int)
+0000da1c g     F .text	00000044 EventResponder::runFromInterrupt()
+1fff8e84 g     O .data	00000018 adjustMenuEntries
+1fff97c0 g     O .data	00000004 __malloc_trim_threshold
+000137f4 g     O .text	00000034 curves
+1fff9926 g     O .bss	00000001 RHp2
+1fff9b88 g     O .bss	00000002 portamThrVal
+00009268 g     F .text	00000050 midiInitialize(unsigned char)
+0001162c g     F .text	00000024 .hidden __floatunsisf
+1fff8f74 g     O .data	00000014 rotSubBMenuEntries
+1fff8e7e g     O .data	00000002 vibSquelchBite
+0000db54  w    F .text	00000004 HardwareSerial2::read()
+1fff9924 g     O .bss	00000001 RH3
+1fffa12c g     O .bss	00000001 usb_cdc_transmit_flush_timer
+1fff9fb0 g     O .bss	00000004 usb_midi_handlePitchChange
+0000cd30 g     F .text	0000001e Adafruit_SSD1306::clearDisplay()
+1fff97c8 g     O .data	00000120 _impure_data
+000119f4 g     F .text	00000010 .hidden __aeabi_cfcmpeq
+0000fb54 g     F .text	00000044 serial3_set_rts
+1fff8e48 g     O .data	00000024 slurInterval
+0000e674  w    F .text	00000006 pit_isr
+0000c580 g     F .text	00000054 Adafruit_SSD1306::Adafruit_SSD1306(unsigned char, unsigned char, TwoWire*, signed char, unsigned long, unsigned long)
+1fff9b0b g     O .bss	00000001 lastpcc1
+00002330 g     F .text	000001a8 portamento_()
+1fff9a74 g     O .bss	00000001 cvPortaTuneCount
+1fff92b9 g     O .data	00000001 _serialEvent2_default
+1fff8e00 g     O .data	00000004 pbSend
+0000e350 g     F .text	0000003c analogWriteDAC0
+1fff9b9c g     O .bss	00000002 rollerMode
+1fff9fd8 g     O .bss	00000004 usb_midi_handleTimeCodeQuarterFrame
+0000e674  w    F .text	00000006 dac0_isr
+0000c874 g     F .text	000000f4 Adafruit_SSD1306::ssd1306_command(unsigned char)
+0000f4a8 g     F .text	00000018 serial2_flush
+00016010 g       .text	00000000 __init_array_start
+0000e674  w    F .text	00000006 can1_tx_warn_isr
+1fff9b60 g     O .bss	00000001 parallelChord
+1fff9c08 g     O .bss	00000004 vibThrBite
+0000e26c g     F .text	000000e4 analogRead
+00011ab4 g     F .text	0000003e .hidden __fixunssfsi
+0000dd58  w    F .text	00000002 teensy::inplace_function_detail::vtable<void>::vtable()::{lambda(void*)#1}::_FUN(void*)
+0000db24  w    F .text	00000006 HardwareSerial2::transmitterEnable(unsigned char)
+1fff9fe8 g     O .bss	00000122 usb_midi_msg_sysex
+0000e674  w    F .text	00000006 uart0_status_isr
+0000e674  w    F .text	00000006 mcg_isr
+000111c4 g     F .text	00000050 expf
+0000fd10 g     F .text	0000004c serial3_peek
+1fff9c70 g     O .bss	00000001 cursorNow
+1fff9a28 g     O .bss	00000020 breathFilter
+1fff9a04 g     O .bss	00000002 batteryType
+0000f7bc g     F .text	00000038 serial2_add_memory_for_read
+00000400 g     O .text	00000010 flashconfigbytes
+1fff9922 g     O .bss	00000001 RH1
+000114ac g     F .text	00000008 .hidden __math_oflowf
+00009224 g     F .text	0000000e convertToMidiValue(unsigned short)
+00000594  w    F .text	00000006 teensy::inplace_function_detail::vtable<void>::vtable<void (*)()>(teensy::inplace_function_detail::wrapper<void (*)()>)::{lambda(void*, void*)#2}::_FUN(void*, void*)
+000127c0 g     F .text	000000dc strlen
+1fff9b20 g     O .bss	00000004 leverPortRead
+000092d8 g     F .text	00000032 writeSetting(unsigned short, unsigned short)
+1fff8db4 g     O .data	0000000b ccList
+000005a8  w    F .text	0000000c IntervalTimer::~IntervalTimer()
+0000e674  w    F .text	00000006 dma_ch1_isr
+1fff9be0 g     O .bss	00000004 touchSensorLH
+1fff9c10 g     O .bss	00000004 vibThrLo
+0000ffc4 g     F .text	0000002c usb_tx_packet_count
+0000dba4  w    F .text	00000020 HardwareSerial2::write(long)
+0000e930  w    F .text	00000002 startup_middle_hook
+0000e674  w    F .text	00000006 dma_ch5_isr
+0000e674  w    F .text	00000006 can0_rx_warn_isr
+1fff9a18 g     O .bss	00000004 brHarmonics
+1fff9b14 g     O .bss	00000002 levelVal
+1fff9b0a g     O .bss	00000001 lastSpecialKey
+0000dcc8  w    F .text	00000004 HardwareSerial3::available()
+1fff9a68 g     O .bss	00000004 currentTime
+0000e674  w    F .text	00000006 can0_tx_warn_isr
+00005ff4 g     F .text	00000026 statusLedFlash(unsigned short)
+1fff990f g     O .bss	00000001 LH1
+00007ed8 g     F .text	0000004c showVersion()
+0000e674  w    F .text	00000006 uart4_status_isr
+0000bd14 g     F .text	00000080 Adafruit_SPIDevice::beginTransaction()
+0000b778 g     F .text	00000096 Adafruit_BusIO_Register::write(unsigned char*, unsigned char)
+0000b910 g     F .text	00000042 Adafruit_BusIO_Register::read()
+00016010 g       .text	00000000 __preinit_array_start
+1fff9af0 g     O .bss	00000001 i2cScan
+1fff9bd0 g     O .bss	00000004 slurBase
+00000494 g     F .text	0000003c FilterOnePole::setFilter(FILTER_TYPE, float, float)
+0000dc58  w    F .text	00000008 HardwareSerial3::addMemoryForRead(void*, unsigned int)
+00009248 g     F .text	0000001e convertToMidiCRC(unsigned long)
+0000d3a4 g     F .text	00000030 Adafruit_GFX::Adafruit_GFX(short, short)
+00005614 g     F .text	00000374 plotSensorPixels()
+0000faf8 g     F .text	00000058 serial3_set_tx
+0000ff04  w    F .text	00000002 serialEvent3()
+000114b4 g     F .text	0000000a __aeabi_atexit
+1fff9fc0 g     O .bss	00000004 usb_midi_handleSongSelect
+0000da10 g     F .text	0000000c Adafruit_GFX::setTextSize(unsigned char)
+1fff9a16 g     O .bss	00000002 brHarmSetting
+0000e674  w    F .text	00000006 cmp2_isr
+000114cc g     F .text	00000160 .hidden __addsf3
+1fff9b6c g     O .bss	00000004 pbUp
+0000da60 g     F .text	00000004 pendablesrvreq_isr
+1fff9918 g     O .bss	00000002 MIDIchannel
+0000db60  w    F .text	00000004 HardwareSerial2::availableForWrite()
+00005fd4 g     F .text	00000008 statusLed(bool)
+0000ae14  w    F .text	00000004 Print::availableForWrite()
+0000aa78 g     F .text	00000006 configModeLoop()
+1fff91e8 g     O .data	00000050 isr_table_portB
+0000e674  w    F .text	00000006 wakeup_isr
+0000dc8c  w    F .text	00000006 HardwareSerial3::setRX(unsigned char)
+0000cfdc g     F .text	0000001c Adafruit_GFX::setRotation(unsigned char)
+0000e674  w    F .text	00000006 cmp3_isr
+0000f998 g     F .text	000000bc serial3_format
+1fff9c00 g     O .bss	00000004 vibSignal
+1fff9f94 g     O .bss	00000004 usb_midi_handleActiveSensing
+00011b04 g     F .text	00000010 free
+0000e674  w    F .text	00000006 tpm2_isr
+1fff917c g     O .data	00000014 Serial2
+0000e674  w    F .text	00000006 dma_ch0_isr
+1fff939c  w    O .data	00000016 usb_string_serial_number
+0000e674  w    F .text	00000006 enet_tx_isr
+1fff9b36 g     O .bss	00000002 octave
+
+

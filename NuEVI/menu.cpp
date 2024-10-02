@@ -1899,7 +1899,7 @@ const MenuEntrySub vib2BrDirMenu = {
 };
 
 const MenuEntrySub vib2BrAmtMenu = {
-  MenuType::ESub, "VIB2BRAMT", "AMOUNT", &vib2BreathAmount, 0, 30, MenuEntryFlags::ENone,
+  MenuType::ESub, "VIB2BRAMT", "AMOUNT", &vib2BreathAmount, 0, 10, MenuEntryFlags::ENone,
   [](SubMenuRef __unused, char* textBuffer, const char** __unused unit) {
     numToString(vib2BreathAmount, textBuffer);
   },
