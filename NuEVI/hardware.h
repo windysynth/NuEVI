@@ -42,6 +42,10 @@
 #define widiJumperGndPin 27
 #define widiPowerPin 33
 
+//Hacky solder in patch change pin
+#define patchPinEVI 32
+#define lockGlidePin 25
+
 //Analog input for measuring voltage
 #define vMeterPin A11
 
@@ -111,6 +115,10 @@
 #define widiJumperPin 28
 #define widiJumperGndPin 27
 #define widiPowerPin 33
+
+//Hacky solder in patch change pin
+#define patchPinEVI 32
+#define lockGlidePin 25
 
 //Analog pressure sensors. Breath and optional bite
 #define breathSensorPin A0

@@ -94,11 +94,12 @@
 #define CVSCALE_ADDR 182
 #define CVRATE_ADDR 184
 #define ROLLER_ADDR 186
-#define GLISSSET_ADDR 188            // ws
-#define VIB2BR_DIRECTION_ADDR 190    // ws
-#define VIB2BR_AMOUNT_ADDR 192       // ws
+#define PORT_LO_LIM_ADDR 188
+#define GLISSSET_ADDR 190            // ws
+#define VIB2BR_DIRECTION_ADDR 192    // ws
+#define VIB2BR_AMOUNT_ADDR 194       // ws
 
-#define EEPROM_SIZE 194 //Last address +2   ws
+#define EEPROM_SIZE 196 //Last address +2   ws
 
 
 //DAC output modes
@@ -112,10 +113,10 @@
 #define DIPSW_GATEOPEN    4
 #define DIPSW_SPKEYENABLE 5
 #define DIPSW_BCASMODE    6
-
+#define DIPSW_FPENABLE    7
 
 //"factory" values for settings
-#define EEPROM_VERSION 45
+#define EEPROM_VERSION 48
 
 #define BREATH_THR_FACTORY 1400
 #define BREATH_MAX_FACTORY 4000
@@ -146,7 +147,7 @@
 #define VEL_SMP_DL_FACTORY 20 // 0 to 30
 #define VEL_BIAS_FACTORY 0  // 0 to 9
 #define PINKY_KEY_FACTORY 12 // 0 - 11 (QuickTranspose -12 to -1), 12 (pb/2), 13 - 22 (QuickTranspose +1 to +12)
-#define DIPSW_BITS_FACTORY 0 // virtual dip switch settings for special modes (work in progress)
+#define DIPSW_BITS_FACTORY 0 // virtual dip switch settings for special modes
 #define PARAL_FACTORY 31 // 7 (+ 24) Rotator parallel
 #define ROTN1_FACTORY 19 // -5 (+24) Rotation 1
 #define ROTN2_FACTORY 14 // -10 (+24) Rotation 2
@@ -202,6 +203,7 @@
 #define CVSCALE_FACTORY 100 // 100 is zero scaling
 #define CVRATE_FACTORY 3 // 3 is 5.5Hz
 #define ROLLER_FACTORY 1
+#define PORT_LO_LIM_FACTORY 0
 #define VIB2BRDIR_FACTORY 1  // ws
 #define VIB2BRAMT_FACTORY 10  // ws
 

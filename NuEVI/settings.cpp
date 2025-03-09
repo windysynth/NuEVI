@@ -184,10 +184,11 @@ void readEEPROM(const bool factoryReset) {
         }
 
         if(settingsVersion < 46) {
-            writeSetting(GLISSSET_ADDR, GLISSSEL_FACTORY);  // ws
+            writeSetting(PORT_LO_LIM_ADDR, PORT_LO_LIM_FACTORY);
         }
-        
-        if(settingsVersion < 47) {
+		
+        if(settingsVersion < 48) {
+		    writeSetting(GLISSSET_ADDR, GLISSSEL_FACTORY);  // ws
             writeSetting(VIB2BR_DIRECTION_ADDR, VIB2BRDIR_FACTORY);  // ws
             writeSetting(VIB2BR_AMOUNT_ADDR, VIB2BRAMT_FACTORY);  // ws
         }
@@ -252,10 +253,10 @@ void readEEPROM(const bool factoryReset) {
     #if defined(NURAD)
     fingering       = readSettingBounded(FINGER_ADDR, 0, 6, FINGER_FACTORY); // ws: added XVI and XVR
     #else
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 5, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 5, FINGER_FACTORY); // ws: added XVI and XVR
     #endif
     lpinky3         = readSettingBounded(LPINKY3_ADDR, 0, 25, LPINKY3_FACTORY);
-    batteryType     = readSettingBounded(BATTYPE_ADDR, 0, 2, BATTYPE_FACTORY);
+    batteryType     = readSettingBounded(BATTYPE_ADDR, 0, 3, BATTYPE_FACTORY);
     harmSetting     = readSettingBounded(HARMSET_ADDR, 0, 6, HARMSET_FACTORY);
     harmSelect      = readSettingBounded(HARMSEL_ADDR, 0, 7, HARMSEL_FACTORY);
     polySelect      = (PolySelect)readSettingBounded(POLYSEL_ADDR, 0, 10, POLYSEL_FACTORY);
@@ -276,19 +277,20 @@ void readEEPROM(const bool factoryReset) {
     rotations_c.rotations[3]   = readSettingBounded(ROTC4_ADDR, 0, 48, ROTC4_FACTORY);
     otfKey          = readSettingBounded(OTFKEY_ADDR, 0, 1, OTFKEY_FACTORY);
     breathInterval  = readSettingBounded(BRINTERV_ADDR, 3, 15, BRINTERV_FACTORY);
-    portLimit       = readSettingBounded(PORTLIMIT_ADDR, 1, 127, PORTLIMIT_FACTORY);
+    portLimit       = readSettingBounded(PORTLIMIT_ADDR, 0, 127, PORTLIMIT_FACTORY);
     leverThrVal     = readSettingBounded(LEVER_THR_ADDR, leverLoLimit, leverHiLimit, LEVER_THR_FACTORY);
     leverMaxVal     = readSettingBounded(LEVER_MAX_ADDR, leverLoLimit, leverHiLimit, LEVER_MAX_FACTORY);
     brHarmSetting   = readSettingBounded(BRHARMSET_ADDR, 0, 6, BRHARMSET_FACTORY);
     brHarmSelect    = readSettingBounded(BRHARMSEL_ADDR, 0, 3, BRHARMSEL_FACTORY);
-    biteControl     = readSettingBounded(BITECTL_ADDR, 0, 4, BITECTL_FACTORY);  // ws
-    leverControl    = readSettingBounded(LEVERCTL_ADDR, 0, 3, LEVERCTL_FACTORY);
+    biteControl     = readSettingBounded(BITECTL_ADDR, 0, 8, BITECTL_FACTORY);  // ws added GLISS to bite sensor
+    leverControl    = readSettingBounded(LEVERCTL_ADDR, 0, 7, LEVERCTL_FACTORY);
     biteCC          = readSettingBounded(BITECC_ADDR, 0, 127, BITECC_FACTORY);
     leverCC         = readSettingBounded(LEVERCC_ADDR, 0, 127, LEVERCC_FACTORY);
     cvTune          = readSettingBounded(CVTUNE_ADDR, 1, 199, CVTUNE_FACTORY);
     cvScale         = readSettingBounded(CVSCALE_ADDR, 1, 199, CVSCALE_FACTORY);
     cvVibRate       = readSettingBounded(CVRATE_ADDR, 0, 8, CVRATE_FACTORY);
     rollerMode      = readSettingBounded(ROLLER_ADDR, 0, 3, ROLLER_FACTORY);
+	portLoLimit     = readSettingBounded(PORT_LO_LIM_ADDR, 0, 127, PORT_LO_LIM_FACTORY);
     glissSetting    = readSettingBounded(GLISSSET_ADDR, 0, 127, GLISSSEL_FACTORY);  // ws
     vib2BrDirection = readSettingBounded(VIB2BR_DIRECTION_ADDR, 0, 1, VIB2BRDIR_FACTORY);  // ws
     vib2BreathAmount = readSettingBounded(VIB2BR_AMOUNT_ADDR, 0, 30, VIB2BRAMT_FACTORY);  // ws
@@ -301,7 +303,7 @@ void readEEPROM(const bool factoryReset) {
     gateOpenEnable   = (dipSwBits & (1<<DIPSW_GATEOPEN))?1:0;
     specialKeyEnable = (dipSwBits & (1<<DIPSW_SPKEYENABLE))?1:0;
     bcasMode         = (dipSwBits & (1<<DIPSW_BCASMODE))?1:0;
-
+    fastPatchEnable  = (dipSwBits & (1<<DIPSW_FPENABLE))?1:0;
 }
 
 

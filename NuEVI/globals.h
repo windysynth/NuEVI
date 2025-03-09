@@ -84,7 +84,8 @@ extern unsigned short breathCC2Rise;  // 1X:2X:3X:4X:5X
 extern unsigned short breathAT;
 extern unsigned short velocity;
 extern unsigned short portamento;// switching on cc65? just cc5 enabled? SW:ON:OFF
-extern unsigned short portLimit; // 1-127
+extern unsigned short portLimit; // 0-127
+extern unsigned short portLoLimit; // 0-127
 extern unsigned short PBdepth;   // OFF:1-12 divider
 extern unsigned short extraCT;   // OFF:MW:FP:CF:SP
 extern unsigned short vibrato;   // OFF:1-9
@@ -107,6 +108,7 @@ extern unsigned short vibControl;
 extern unsigned short vib2BreathAmount;
 extern unsigned short vib2BrDirection;
 extern unsigned short fastPatch[7];
+extern unsigned short fastPatchEnable;
 extern unsigned short extraCT2; // OFF:1-127
 extern unsigned short levelCC; // 0-127
 extern unsigned short levelVal; // 0-127
@@ -127,8 +129,8 @@ extern unsigned short hmzKey; // 0-11 (0 is C)
 extern unsigned short hmzLimit; // 2-5
 extern unsigned short otfKey; //OFF:ON
 extern unsigned short breathInterval; // 3-15
-extern unsigned short biteControl; // OFF, VIB, GLD, CC, GLS  (ws)
-extern unsigned short leverControl; // OFF, VIB, GLD, CC
+extern unsigned short biteControl; // OFF, VIB, GLD, CC, VIB+, GLD+, VG, VG+, GLS  (ws)
+extern unsigned short leverControl; // OFF, VIB, GLD, CC, VIB+, GLD+, VG, VG+
 extern unsigned short biteCC; // 0 - 127
 extern unsigned short leverCC; // 0 -127
 extern unsigned short cvTune;  // 1 - 199 representing -99 to +99 in menu (offset of 100 to keep postitive)
@@ -194,6 +196,7 @@ extern int battAvg;
 extern int breathLevel;
 extern byte portIsOn;
 extern int oldport;
+extern int finalPortCC;
 
 #if defined(NURAD)
             // Key variables, TRUE (1) for pressed, FALSE (0) for not pressed
