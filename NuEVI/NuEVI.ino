@@ -1968,7 +1968,7 @@ void biteCC_() {
 }
 
 void gliss() {  // ws
-  if (4 == biteControl) { // "GLS"
+  if (8 == biteControl) { // "GLS"
     // Glissando Interval is controlled with the bite sensor in the mouthpiece
     if (biteJumper) { //PBITE (if pulled low with jumper or if on a NuRAD, use pressure sensor instead of capacitive bite sensor)
       biteSensor=analogRead(bitePressurePin); // alternative kind bite sensor (air pressure tube and sensor)  PBITE
