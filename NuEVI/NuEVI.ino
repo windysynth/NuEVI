@@ -1870,7 +1870,8 @@ void portamento_() {
   if (glideLockOn){
     if (portamento) portSumCC += 127;
   }
-  if (2 == biteControl || 5 == biteControl || 6 == biteControl || 7 == biteControl) {
+    // "OFF", "VIB", "GLD", "CC", "VIB+", "GLD+", "VG", "VG+", "GLS"
+  if (2 == biteControl || 5 == biteControl || 6 == biteControl || 7 == biteControl || 8 ==  biteControl) {   // ws, allow gliss (GLS) too
     // Portamento is controlled with the bite sensor in the mouthpiece
     if (biteJumper) { //PBITE (if pulled low with jumper or if on a NuRAD, use pressure sensor instead of capacitive bite sensor)
       biteSensor=analogRead(bitePressurePin); // alternative kind bite sensor (air pressure tube and sensor)  PBITE
@@ -1950,6 +1951,7 @@ void portOff() {
 
 void biteCC_() {
   int biteCClevel = 0;
+    //"OFF", "VIB", "GLD", "CC", "VIB+", "GLD+", "VG", "VG+", "GLS"
   if (3 == biteControl || 4 == biteControl || 5 == biteControl || 7 == biteControl){
     if (biteJumper) { //PBITE (if pulled low with jumper or if on a NuRAD, use pressure sensor instead of capacitive bite sensor)
       biteSensor=analogRead(bitePressurePin); // alternative kind bite sensor (air pressure tube and sensor)  PBITE
