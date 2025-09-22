@@ -94,7 +94,7 @@ unsigned short priority; // mono priority for rotator chords
 unsigned short extraCT2; // OFF:1-127
 unsigned short levelCC; // 0-127
 unsigned short levelVal; // 0-127
-unsigned short fingering; // NuRAD: 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR; NuEVI: 0-5 EVI,EVR,TPT,HRN,XVI,XVR;  ws added XVI and XVR
+unsigned short fingering; // NuRAD: 0-6 EWI,EWX,SAX,EVI,EVR,XVI,XVR,WX5; NuEVI: 0-5 EVI,EVR,TPT,HRN,XVI,XVR;  ws added XVI and XVR
 unsigned short rollerMode; //0-2
 unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -321,6 +321,46 @@ const byte saxFingerMatch[16][10] =
   {0, 2, 0, 2, 2, 2, 2, 2, 2, 2}, // C# (-0 semis)
 };
 
+// NuRAD WX5 fingering (same as Sax but added WX5 extensions when LH1,LH2,LH3 not pressed )
+// LH1, LHb, LH2, LH3, LHp1, RH1, RH2, RH3, RHp1, RHp3  
+// -LHp2-, -RHs-, -RHp2-, -excluded- LHp2 always -1, RHs always +1, RHp2 disabled
+// 0 = not touched, 1 = touched, 2 = whatever
+
+const byte wx5FingerMatch[27][10] =
+{
+  {1, 2, 1, 1, 0,  1, 1, 1, 2, 1}, // C (-13 semis)
+  {1, 2, 1, 1, 1,  1, 1, 1, 2, 1}, // C# (-12 semis)
+  {1, 2, 1, 1, 2,  1, 1, 1, 0, 0}, // D (-11 semis)
+  {1, 2, 1, 1, 2,  1, 1, 1, 1, 0}, // D# (-10 semis)
+  {1, 2, 1, 1, 2,  1, 1, 0, 2, 2}, // E (-9 semis)
+  {1, 2, 1, 1, 2,  1, 0, 2, 2, 2}, // F (-8 semis)
+  {1, 2, 1, 1, 2,  0, 1, 2, 2, 2}, // F# (-7 semis)
+  {1, 2, 1, 1, 0,  0, 0, 2, 2, 2}, // G (-6 semis)
+  {1, 2, 1, 1, 1,  0, 0, 2, 2, 2}, // G# (-5 semis)
+  {1, 2, 1, 0, 2,  2, 2, 2, 2, 2}, // A (-4 semis)
+  {1, 2, 0, 2, 2,  1, 2, 2, 2, 2}, // A# (-3 semis) RH1 for Bb
+  {1, 2, 0, 2, 2,  2, 1, 2, 2, 2}, // A# (-3 semis) RH2 for Bb
+  {1, 1, 0, 2, 2,  2, 2, 2, 2, 2}, // A# (-3 semis) bis for Bb
+  {1, 0, 0, 2, 2,  0, 2, 2, 2, 2}, // B (-2 semis)
+  {0, 2, 1, 2, 2,  2, 2, 2, 2, 2}, // C (-1 semis)
+  {0, 2, 0, 2, 0,  1, 1, 1, 0, 1}, // C (-1 semis)
+  {0, 2, 0, 2, 1,  1, 1, 1, 0, 1}, // C# (-0 semis)
+  {0, 2, 0, 0, 0,  0, 0, 0, 0, 0}, // C# (-0 semis)
+  {0, 2, 0, 2, 0,  1, 1, 1, 0, 0}, // D (+1 semis)
+  {0, 2, 0, 2, 0,  1, 1, 1, 1, 0}, // D# (+2 semis)
+  {0, 2, 0, 2, 0,  0, 1, 1, 0, 0}, // D# (+2 semis)
+  {0, 2, 0, 2, 0,  1, 0, 1, 0, 0}, // D# (+2 semis)
+  {0, 2, 0, 2, 0,  1, 1, 0, 0, 0}, // E (+3 semis)
+  {0, 2, 0, 2, 0,  1, 0, 0, 0, 0}, // F (+4 semis)
+  {0, 2, 0, 2, 0,  0, 1, 0, 0, 0}, // F# (+5 semis)
+  {0, 2, 0, 1, 0,  0, 0, 0, 0, 0}, // G (+6 semis) WX5 only goes to F#
+  {0, 2, 0, 1, 1,  0, 0, 0, 0, 0}, // G# (+7 semis) WX5 only goes to F#
+};
+
+
+
+
+
 static int waveformsTable[maxSamplesNum] = {
   // Sine wave
   0x7ff, 0x86a, 0x8d5, 0x93f, 0x9a9, 0xa11, 0xa78, 0xadd, 0xb40, 0xba1,
@@ -339,6 +379,9 @@ static int waveformsTable[maxSamplesNum] = {
 
 int saxFingerResult[16] =
 {-13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -3, -3, -2, -1, 0};
+
+int wx5FingerResult[27] =
+{-13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -3, -3, -2, -1, -1, 0, 0, 1, 2, 2 , 2, 3, 4, 5, 6, 7};
 
 byte saxFinger[10];
 
@@ -2311,7 +2354,7 @@ void readSwitches() {
       + LHp1 + RHp1               // Trill keys +1 
       - LHp2 - 2*RHp2               // Trill keys -1 and -2 
       + octaveR*12;       //Octave rollers
-  } else { // XVR is XVI fingering with reversed octave rollers
+  } else if (6==fingering) { // XVR is XVI fingering with reversed octave rollers
       fingeredNoteUntransposed = startNote
       - 2*RH1 - RH2 - 3*RH3  //"Trumpet valves"
       - 5*LH1              //Fifth key
@@ -2321,6 +2364,31 @@ void readSwitches() {
       + LHp1 + RHp1               // Trill keys +1 
       - LHp2 - 2*RHp2               // Trill keys -1 and -2 
       + (6-octaveR)*12;       //Octave rollers, reversed    
+  }  else /* if (7==fingering) */ { // WX5 fingering
+    saxFinger[0] = LH1;
+    saxFinger[1] = LHb;
+    saxFinger[2] = LH2;
+    saxFinger[3] = LH3;
+    saxFinger[4] = LHp1;
+    saxFinger[5] = RH1;
+    saxFinger[6] = RH2;
+    saxFinger[7] = RH3;
+    saxFinger[8] = RHp1;
+    saxFinger[9] = RHp3;
+
+    byte matched = 0;
+    byte combo = 0;
+
+    while (matched<10 && combo<27)
+    {
+      combo++;
+      matched = 0;
+      for (byte finger=0; finger < 10; finger++)
+      {
+        if ((saxFinger[finger] == wx5FingerMatch[combo-1][finger]) || (wx5FingerMatch[combo-1][finger] == 2)) matched++;
+      }
+    }
+    if (matched<11 && combo==27) fingeredNoteUntransposed=lastFingering; else fingeredNoteUntransposed = startNote+1+wx5FingerResult[combo-1]-LHp2+RHs-(RHp2 && (1 == combo) && LHp2)+octaveR*12;
   }
   
 

@@ -1747,9 +1747,9 @@ const MenuEntrySub lvlCtrlCCMenu = {
 
 #if defined(NURAD)
 const MenuEntrySub fingeringMenu = {
-  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 6, MenuEntryFlags::EMenuEntryWrap,
+  MenuType::ESub, "FINGERING", "FINGERING", &fingering, 0, 7, MenuEntryFlags::EMenuEntryWrap,
   [](SubMenuRef __unused,char* out, const char ** __unused unit) {
-    const char* labs[] = { "EWI", "EWX", "SAX", "EVI", "EVR", "XVI", "XVR" };  //ws added XVI,XVR
+    const char* labs[] = { "EWI", "EWX", "SAX", "EVI", "EVR", "XVI", "XVR", "WX5" };  //ws added XVI,XVR,WX5
     strncpy(out, labs[fingering], 4);
   },
   [](SubMenuRef __unused sub) { writeSetting(FINGER_ADDR,fingering); }
